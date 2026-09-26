@@ -1,5 +1,12 @@
 # ai_work_operating_standard
-you can use this freely, and you can trust my help on contract base if you needed. 
+
+AIを含む作業を、目的・権限・証拠・受入の曖昧さから守るための、公開の実務運用標準です。
+
+このリポジトリには、規範となる運用標準、成果物の必要十分性に関する補助資料、ならびに選択・統合して使うためのテンプレート群を収録しています。テンプレートの一括作成や、既存のプロジェクト管理・法務判断・組織上の権限を置き換えることは意図していません。
+
+自由に利用・参照・適用してください。
+
+自組織への導入、AI支援開発の統制設計、個別案件向けの作業設計、契約・調達の前提整理などで支援が必要な場合は、商用のご相談も歓迎します。
 
 ## 文書
 
@@ -9,5 +16,6 @@ you can use this freely, and you can trust my help on contract base if you neede
 - [共通骨格・品質基準・ゲート報告への接続](templates/DESIGN.md)
 - [参考文献台帳](templates/REFERENCES.md)
 - [テンプレート集の横断レビュー](templates/REVIEW.md)
+- [運用補助資料 v0.5（規範外）](support/README.md)
 
 テンプレートは選択・統合して利用する。50文書の一括作成を要求せず、運用標準や既存のプロジェクト管理体制を上書きしない。

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>条件から選ぶ50テンプレート</title>
+<style>
+:root{color-scheme:light;--ink:#233e44;--muted:#53696d;--line:#d0dcda;--accent:#00695d;--paper:#fff;--bg:#f3f6f3;font-family:system-ui,"Yu Gothic",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.65}main{max-width:1160px;margin:auto;padding:34px 24px 70px}h1{font-size:clamp(1.6rem,4vw,2.4rem);margin:8px 0}h2{font-size:1.3rem}h3{font-size:1.05rem;margin:0 0 8px}p{margin:8px 0}a{color:var(--accent)}.eyebrow{letter-spacing:.12em;font-size:.8rem;color:var(--accent)}.muted,small{color:var(--muted)}.intro{max-width:850px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px;margin-top:22px}.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.mode{border:1px solid var(--line);border-radius:9px;padding:14px;cursor:pointer}.mode:has(input:checked){border:2px solid var(--accent);padding:13px;background:#eaf6f0}.mode strong{font-size:1.2rem}.mode small{display:block;margin-top:5px}.count{display:block;font-size:1.35rem;font-weight:700;color:var(--accent);margin-top:10px}.questions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.question label{display:block;font-weight:600;margin-bottom:6px}select{width:100%;padding:10px 6px;font:inherit;font-size:.9rem;color:var(--ink);border:1px solid #809895;border-radius:6px;background:white}select:disabled{background:#edf0ed;color:var(--muted)}fieldset{border:0;padding:0;margin:22px 0}legend{font-weight:700;font-size:1.08rem;margin-bottom:12px}button{font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:white;color:var(--ink);cursor:pointer}button:hover{border-color:var(--accent)}:focus-visible{outline:3px solid #bd661a;outline-offset:3px}.presets{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.summary{padding:15px 18px;border-left:4px solid var(--accent);background:#eaf6f0;margin:20px 0}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{padding:16px;border:1px solid var(--line);border-radius:9px;background:white;overflow-wrap:anywhere}.tag{display:inline-block;font-size:.75rem;border:1px solid var(--line);border-radius:20px;padding:1px 8px;margin-bottom:8px}.card dl{font-size:.9rem;margin:12px 0 0}.card dt{font-weight:600;margin-top:9px}.card dd{margin:0;color:var(--muted)}details{margin:16px 0}summary{cursor:pointer;font-weight:600;padding:8px 0}.minor{font-size:.88rem}footer{border-top:1px solid var(--line);margin-top:25px;padding-top:15px}
+.questions{grid-template-columns:repeat(2,minmax(0,1fr))}.answer{overflow-wrap:anywhere;margin:5px 0 0}.answer:empty{display:none}
+@media(max-width:760px){.questions,.cards{grid-template-columns:1fr}.modes{grid-template-columns:1fr}.panel{padding:16px}main{padding:20px 14px}.count{font-size:1.1rem}}
+</style>
+</head>
+<body><main>
+<header>
+<div class="eyebrow">AI WORK OPERATING STANDARD / 運用補助</div>
+<h1>条件から選ぶ50テンプレート</h1>
+<p class="intro">今回の仕事について答えると、役立ちそうな文書が見つかります。Loose・Medium・Tightで、どこまで詳しく記録・確認するかを比べられます。</p>
+<p class="minor muted">候補数は文書の作成数ではありません。3段階は案件規模やリスク分類とも別です。適用・受入は<a href="../01-ai_work_operating_standard_integrated_v1_0_2026-09.md">運用標準</a>と案件の決定に従います。</p>
+</header>
+<section class="panel" aria-labelledby="condition-title">
+<h2 id="condition-title">1. 今回はどんな仕事ですか？ <small>Given Conditions</small></h2>
+<p class="muted">今の状況にいちばん近い答えを選んでください。いくつか当てはまる場合は、下の答えを選びます。まだ決まっていないことは「まだ分からない」で構いません。</p>
+<div class="presets" aria-label="回答例">
+<button type="button" data-preset="small">例：自分用の小さなプログラム修正</button>
+<button type="button" data-preset="team">例：部門の業務ツール</button>
+<button type="button" data-preset="agent">例：業務で自動操作するAI</button>
+<button type="button" data-preset="unknown">回答をリセット</button>
+</div>
+<p class="minor muted">例ボタンは回答を置き換えます。架空の出発点なので、実際の条件に合わせて変更してください。</p>
+<div id="questions"></div>
+</section>
+<section class="panel" aria-labelledby="depth-title">
+<h2 id="depth-title">2. どこまで詳しく記録・確認しますか？</h2>
+<div id="modes" class="modes"></div>
+<p class="minor muted">個人情報や契約、AIに任せる操作など、今回の仕事に必要な確認はLooseでも残ります。Tightを選んでも、関係のない文書が全部出てくるわけではありません。</p>
+</section>
+<section aria-labelledby="result-title">
+<h2 id="result-title">3. テンプレートの役割と選び方</h2>
+<div id="summary" class="summary" role="status" aria-live="polite"></div>
+<div class="presets" aria-label="候補一覧を保存">
+<button type="button" id="export-json">候補一覧をJSONで保存</button>
+<button type="button" id="export-csv">候補一覧をCSVで保存</button>
+</div>
+<p class="minor muted">JSONはほかのツールへの受け渡しに、CSVは表計算ソフトでの確認に使えます。現在の候補・回答・選ばれた理由を保存します。テンプレート本文は含みません。</p>
+<p id="export-status" class="minor" role="status" aria-live="polite"></p>
+<div id="results"></div>
+</section>
+<footer class="minor muted">入力はページ内だけで処理し、外部通信や自動保存は行いません。保存ボタンでファイルをダウンロードできます。再読込で回答は初期化されます。<a href="OPERATIONS_HANDBOOK.md">運用ハンドブック</a> · <a href="template-catalog.json">機械可読カタログ</a> · <a href="../templates/README.md">テンプレート一覧</a></footer>
+<noscript>候補表示にはJavaScriptが必要です。上記のテンプレート一覧を参照してください。</noscript>
+</main>
+<script>
+/* CATALOG */
+/* ENGINE */
+'use strict';
+const questions = catalog.selection.questions;
+const depths = catalog.selection.depths;
+const titles = {A:'企画・統治',B:'調査・要求',C:'設計・リスク',D:'実装・検証・導入運用',E:'AI固有'};
+const esc = value => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const presets = {
+ small:{work:2,ai:1},
+ team:{work:2,team:1,budget:1,uncertainty:1,users:1,change:1,structure:1,data:1,privacy:1,quality:1,attack:1,delivery:1,operations:1,ai:1,autonomy:1},
+ agent:{work:2,team:2,budget:2,uncertainty:1,users:1,change:2,structure:2,data:2,privacy:1,quality:2,attack:2,delivery:2,operations:2,ai:2,autonomy:2,model:1}
+};
+document.querySelector('#questions').innerHTML = [...new Set(questions.map(q => q.group))].map(group =>
+ `<fieldset><legend>${esc(group)}</legend><div class="questions">${questions.filter(q => q.group === group).map(q =>
+ `<div class="question"><label for="q-${q.id}">${esc(q.title)}</label><select id="q-${q.id}" aria-describedby="answer-${q.id}"><option value="?">まだ分からない</option>${q.options.map((text,level) => `<option value="${level}">${esc(text)}</option>`).join('')}</select><p class="minor muted answer" id="answer-${q.id}"></p></div>`).join('')}</div></fieldset>`).join('');
+document.querySelector('#modes').innerHTML = depths.map((d,i) => `<label class="mode"><input type="radio" name="depth" value="${i}" ${i===1?'checked':''}> <strong>${esc(d.name)}</strong><small>${esc(d.description)}</small><span class="count" id="count-${i}"></span></label>`).join('');
+function answers() {
+ return Object.fromEntries(questions.map(q => {const v=document.querySelector('#q-'+q.id).value; return [q.id,v==='?'?null:Number(v)];}));
+}
+function syncDependencies(reset) {
+ const ai = document.querySelector('#q-ai').value;
+ for (const q of questions.filter(q=>q.requires)) {
+  const el = document.querySelector('#q-'+q.id);
+  if (ai==='0') {el.value='0';el.disabled=true;}
+  else {if (reset && el.disabled) el.value='?';el.disabled=false;}
+ }
+}
+function clauseText(clause, values) {
+ return TemplateSelector.reason(catalog,values,clause);
+}
+function renderCard(t, values, depth) {
+ let label,reason;
+ if(t.status==='candidate') {
+  const c=t.matches.find(c=>c.minimumDepth<=depth);
+  label=c.minimumDepth===0?'今回の仕事に関係する文書':'詳しく確認するための文書';
+  reason=clauseText(c,values);
+ } else if(t.status==='deeper') {
+  label=depths[t.minimumDepth].name+'から候補';reason=clauseText(t.matches[0],values);
+ } else if(t.status==='unknown') {
+  label='まだ分からない回答に関係する文書';
+  const names=[...new Set(t.possible.flatMap(c=>c.unknown))].map(id=>questions.find(q=>q.id===id).title);
+  reason='確認したい条件：'+names.join(' ／ ');
+ } else {label='今の回答では含めていない文書';reason='使う場面を読んで、実際の仕事にも関係するなら回答や文書の選び方を見直してください。';}
+ return `<article class="card"><span class="tag">${esc(label)}</span><h3><a href="../templates/${esc(t.path)}">${t.id} ${esc(t.title)}</a></h3><p>${esc(t.role)}</p><dl><dt>表示している理由</dt><dd>${esc(reason)}</dd><dt>今ある資料にまとめるなら</dt><dd>${esc(t.integration)}</dd></dl><details><summary>どんなときに使う？ 何を用意する？</summary><p class="minor">${esc(t.trigger)}</p><dl><dt>用意する情報</dt><dd>${esc(t.inputs)}</dd><dt>次へ渡すもの</dt><dd>${esc(t.outputs)}</dd><dt>運用標準の参考対応先</dt><dd>${esc(t.standard_refs)}</dd></dl></details></article>`;
+}
+function renderGroups(items,values,depth) {
+ return Object.entries(titles).map(([key,title])=>{const group=items.filter(t=>t.category===key);return group.length?`<h3>${key} ${esc(title)} · ${group.length}件</h3><div class="cards">${group.map(t=>renderCard(t,values,depth)).join('')}</div>`:'';}).join('');
+}
+function update() {
+ const values=answers();const depth=Number(document.querySelector('input[name="depth"]:checked').value);
+ questions.forEach(q=>{document.querySelector('#answer-'+q.id).textContent=q.requires && values[q.requires]===0 ? 'AIを使わないため、この質問への回答は不要です。' : values[q.id]===null ? '' : q.options[values[q.id]];});
+ document.querySelector('#export-status').textContent='';
+ const all=depths.map((_,d)=>TemplateSelector.evaluate(catalog,values,d));
+ all.forEach((rows,i)=>{document.querySelector('#count-'+i).textContent=rows.filter(t=>t.status==='candidate').length+'件の候補';});
+ const rows=all[depth];const by=status=>rows.filter(t=>t.status===status);
+ const unknown=questions.filter(q=>values[q.id]===null).length;
+ document.querySelector('#summary').textContent=`${depths[depth].name}：候補 ${by('candidate').length}件 ／ より詳しく確認すると追加 ${by('deeper').length}件 ／ 回答待ち ${by('unknown').length}件 ／ 今は含めない ${by('outside').length}件。まだ分からない質問 ${unknown}問。`;
+ document.querySelector('#results').innerHTML=`<p>${esc(depths[depth].description)} 同じ情報を何度も書く必要はありません。今ある資料を参照しても構いません。</p>${renderGroups(by('candidate'),values,depth)}`+
+ [['unknown','まだ分からない回答に関係する文書'],['deeper','より詳しく確認すると追加される文書'],['outside','今の回答では含めていない文書']].map(([status,label])=>`<details><summary>${esc(label)}（${by(status).length}件）</summary>${renderGroups(by(status),values,depth)}</details>`).join('');
+}
+function saveList(format) {
+ const status=document.querySelector('#export-status');
+ try {
+  const depth=Number(document.querySelector('input[name="depth"]:checked').value);
+  const snapshot=TemplateSelector.createExport(catalog,answers(),depth);
+  const content=format==='json'?JSON.stringify(snapshot,null,2)+'\n':TemplateSelector.toCsv(snapshot);
+  const blob=new Blob([content],{type:format==='json'?'application/json;charset=utf-8':'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement('a');
+  link.href=url;link.download=`template-selection-${snapshot.depth.id}-${snapshot.created_at.replace(/[:.]/g,'-')}.${format}`;
+  link.hidden=true;
+  try {document.body.appendChild(link);link.click();}
+  finally {link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+  status.textContent=`${snapshot.documents.length}件の候補一覧をダウンロードします。保存先はブラウザの設定に従います。`;
+ } catch(error) {status.textContent='ファイルを作成できませんでした。ブラウザのダウンロード設定を確認してください。';}
+}
+document.querySelector('#export-json').addEventListener('click',()=>saveList('json'));
+document.querySelector('#export-csv').addEventListener('click',()=>saveList('csv'));
+document.querySelector('#questions').addEventListener('change',()=>{syncDependencies(true);update();});
+document.querySelector('#modes').addEventListener('change',update);
+document.querySelectorAll('[data-preset]').forEach(button=>button.addEventListener('click',()=>{
+ const key=button.dataset.preset;
+ for(const q of questions) {const el=document.querySelector('#q-'+q.id);el.disabled=false;el.value=key==='unknown'?'?':String(presets[key][q.id]??0);}
+ syncDependencies(false);update();
+}));
+update();
+</script>
+</body></html>

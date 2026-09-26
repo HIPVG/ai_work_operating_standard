@@ -16,9 +16,11 @@
 
 以下21件のリンク先を2026-09-26に開き、関連する本文を確認した。サイト全体・有料規格本文・リンク先添付ファイル一式を検査したという意味ではない。「書式」以外にも仕様、工程ガイド、チェックリストが含まれる。
 
+表の`種別`は資料の性格（`source_kind`）、`この集への利用範囲`は本集で参照した観点と非規範性（`normative_status_and_use`）を示す。外部資料はすべて参考であり、本リポジトリの規範ではない。資料ごとの確認範囲（`review_scope`）は、表の名称・確認日と末尾の「確認の限界と利用条件」を組み合わせて読む。
+
 スタディの参考文献のうち、Discovery、NIST Playbook、ATRS、Microsoftの影響評価、Googleの監視資料を引き続き使い、それ以外に書式・記入観点を補う資料を追加した。スタディに載る他の文献を再検証済みと扱わない。
 
-| ID | 一次資料・確認した媒体 | 種別 | この集への利用範囲 | 利用先 |
+| ID | 一次資料・確認した媒体 | 種別 (`source_kind`) | この集への利用範囲 (`normative_status_and_use`) | 利用先 |
 |---|---|---|---|---|
 | S01 | [Atlassian Project Charter](https://www.atlassian.com/software/confluence/templates/project-charter) | 書式解説 | 目的・責任・範囲の入口。軽量PoCに憲章を強制する根拠にはしない。 | [T01](a-planning/T01-project-charter.md)、[T04](a-planning/T04-roles.md)、[T09](a-planning/T09-communication.md) |
 | S02 | [Atlassian Product Requirements](https://www.atlassian.com/software/confluence/templates/product-requirements) | 書式解説 | 要求と目的、未解決の問い、対象外を対応付ける。 | [T02](a-planning/T02-product-vision.md)、[T05](a-planning/T05-scope.md)、[T08](a-planning/T08-assumptions.md)、[T17](b-discovery-requirements/T17-requirements.md)、[T18](b-discovery-requirements/T18-backlog.md)、[T38](d-delivery-operations/T38-user-acceptance.md) |

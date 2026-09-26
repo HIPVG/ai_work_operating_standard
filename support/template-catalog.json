@@ -1,0 +1,1918 @@
+{
+  "schema_version": "0.2",
+  "status": "non-normative-index",
+  "canonical_sources": {
+    "template_contents": "../templates/",
+    "selection_guidance": "../templates/README.md",
+    "governing_standard": "../01-ai_work_operating_standard_integrated_v1_0_2026-09.md",
+    "selection_rules": "selector-rules.json"
+  },
+  "field_notes": {
+    "guidance": "Original [lightweight, medium, large] reference labels, NOT Loose/Medium/Tight or normative requirements.",
+    "selection_rules": "Editorial selection suggestions, separate from the standard and project decisions.",
+    "source_sha256": "SHA256 of UTF-8 template text with CRLF normalized to LF. Source hashes use the same normalization."
+  },
+  "source_hashes": {
+    "template_list": "008a37ef96e515c635d27f2e52b7500a333e1f3d4a0a210b07cc20867c1e1406",
+    "selection_rules": "6cb3a22a6b71f340fd6bd8c60993ebd89e87ec9783ee424d40df7d5a691b99e9"
+  },
+  "selection": {
+    "version": "0.5",
+    "status": "任意採用TIPS。候補選択の編集上の目安であり、規範の適用認定ではない。",
+    "depths": [
+      {
+        "id": "loose",
+        "name": "Loose",
+        "description": "要点を短く。決めることと理由を、今あるメモや帳票に残します。"
+      },
+      {
+        "id": "medium",
+        "name": "Medium",
+        "description": "引き継げる詳しさに。何を作り、どう確かめるかをつなげます。"
+      },
+      {
+        "id": "tight",
+        "name": "Tight",
+        "description": "詳しく確認。他の方法や、変更したときの影響まで確かめます。"
+      }
+    ],
+    "questions": [
+      {
+        "id": "work",
+        "group": "何をするか・誰と進めるか",
+        "title": "今回は、どこまで進めますか？",
+        "options": [
+          "調べて、結果や案をまとめる",
+          "何を作るか・どう作るかを決める",
+          "プログラムや自動処理を作り、動くか確かめる"
+        ]
+      },
+      {
+        "id": "team",
+        "group": "何をするか・誰と進めるか",
+        "title": "この仕事のOKは、誰が出しますか？",
+        "options": [
+          "一人の責任者で決められる",
+          "担当者同士で確認・引き継ぐ",
+          "顧客や別の部署・会社のOKも必要"
+        ]
+      },
+      {
+        "id": "budget",
+        "group": "何をするか・誰と進めるか",
+        "title": "費用や契約について、決めることはありますか？",
+        "options": [
+          "決まった予算内で行う。新たな判断は不要",
+          "費用に見合うか、続けるかを決める",
+          "新しい予算や契約の承認が必要"
+        ]
+      },
+      {
+        "id": "uncertainty",
+        "group": "作るもの・進め方",
+        "title": "今の情報だけで、進め方を決められますか？",
+        "options": [
+          "必要なことは調べ済みで、方法も決まっている",
+          "一部、調べたり確かめたりする必要がある",
+          "大事な点が不明、または方法を比べる必要がある"
+        ]
+      },
+      {
+        "id": "users",
+        "group": "作るもの・進め方",
+        "title": "使う人や、その人の仕事について調べますか？",
+        "options": [
+          "使い方は分かっており、改めて調べる必要はない",
+          "使う人に確かめる。すでに調べた結果も含む",
+          "複数の人や部署にまたがる仕事の流れを調べる"
+        ]
+      },
+      {
+        "id": "change",
+        "group": "作るもの・進め方",
+        "title": "今ある仕事のやり方やシステムを変えますか？",
+        "options": [
+          "新しく一度だけ作る。今あるものへの影響なし",
+          "今ある仕事のやり方やシステムを変える",
+          "段階的に切り替える、または複数の変更を進める"
+        ]
+      },
+      {
+        "id": "structure",
+        "group": "作るもの・進め方",
+        "title": "ほかの仕組みとつなぎますか？",
+        "options": [
+          "一つの仕組みで完結し、作り方も決まっている",
+          "複数の部品や機能のつなぎ方を決める",
+          "別のサービスとデータや処理をやり取りする"
+        ]
+      },
+      {
+        "id": "data",
+        "group": "使う情報・失敗したときの影響",
+        "title": "データを保存・加工したり、判断に使いますか？",
+        "options": [
+          "保存・加工・試験用データの利用はしない",
+          "データを保存・加工し、形式を決める",
+          "データの正しさが、重要な判断やAIの性能を左右する"
+        ]
+      },
+      {
+        "id": "privacy",
+        "group": "使う情報・失敗したときの影響",
+        "title": "個人情報や、扱いに制限のある情報を使いますか？",
+        "options": [
+          "扱わないことを確認できている",
+          "決められた範囲内で使う",
+          "別の組織に渡す、広く使う、または人への影響が大きい"
+        ]
+      },
+      {
+        "id": "quality",
+        "group": "使う情報・失敗したときの影響",
+        "title": "間違ったり、止まったりすると、どのくらい困りますか？",
+        "options": [
+          "影響は小さく、すぐにやり直せる",
+          "速さ・安全性・直しやすさなどの確認が必要",
+          "大きな損害につながるため、作った人以外の確認も必要"
+        ]
+      },
+      {
+        "id": "attack",
+        "group": "使う情報・失敗したときの影響",
+        "title": "不正な入力や、許可のない操作への対策は必要ですか？",
+        "options": [
+          "外からの入力も、使える人・操作の変更もない",
+          "外から入力を受ける、または操作できる人を分ける",
+          "不正な入力や操作を防げるか、重点的に試す"
+        ]
+      },
+      {
+        "id": "delivery",
+        "group": "使い始めた後のこと",
+        "title": "できたものを、誰が使いますか？",
+        "options": [
+          "自分の手元で確かめるだけ",
+          "チームで共有する、または使う人に試してもらう",
+          "顧客に渡す、公開する、または実際の業務で使う"
+        ]
+      },
+      {
+        "id": "operations",
+        "group": "使い始めた後のこと",
+        "title": "どのくらい使い続けますか？",
+        "options": [
+          "短時間、一度だけ使って終わる",
+          "繰り返し、または定期的に使う",
+          "使い続けながら、見守り・修正・故障対応を行う"
+        ]
+      },
+      {
+        "id": "ai",
+        "group": "AIにしてもらうこと",
+        "title": "AIにどんな仕事をしてもらいますか？",
+        "options": [
+          "AIは使わない",
+          "調べ物・下書き・開発を手伝わせ、人が確かめる",
+          "製品の機能や、実際の業務の判断にAIを使う"
+        ]
+      },
+      {
+        "id": "autonomy",
+        "group": "AIにしてもらうこと",
+        "title": "AIに、どこまで操作を任せますか？",
+        "requires": "ai",
+        "options": [
+          "案や文章を作るだけ。操作するのは人",
+          "人が途中で確認しながら、AIにも操作させる",
+          "人が毎回確認せず、AIに続けて操作させる"
+        ]
+      },
+      {
+        "id": "model",
+        "group": "AIにしてもらうこと",
+        "title": "使うAIの種類は、どう決めますか？",
+        "requires": "ai",
+        "options": [
+          "決まったAIをそのまま使う。説明書を参照する",
+          "複数のAIを比べて、合うものを選ぶ",
+          "AIを追加学習・調整する、または人に提供する"
+        ]
+      }
+    ],
+    "rule_format": "[minimum_depth, {question_id: minimum_answer_level}]. depth=0/1/2 はLoose/Medium/Tight。配列内はOR、条件オブジェクト内はAND。空条件は共通の問い。回答の0は明示的な対象外、nullは未確認。"
+  },
+  "templates": [
+    {
+      "id": "T01",
+      "title": "プロジェクト憲章",
+      "category": "A",
+      "path": "a-planning/T01-project-charter.md",
+      "guidance": [
+        "optional",
+        "required",
+        "required"
+      ],
+      "role": "案件を開始する理由と委任境界を判断する。",
+      "trigger": "複数主体、契約、予算、統治の明文化が必要。",
+      "inputs": "依頼、上位方針、既存の役割・予算記録。",
+      "outputs": "責任者が開始・保留を判断できる合意案。",
+      "integration": "企画書又は軽量作業カード。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "3.1、3.4、G0、M1",
+      "selection_rules": [
+        [
+          1,
+          {
+            "team": 1
+          }
+        ],
+        [
+          0,
+          {
+            "team": 2
+          }
+        ],
+        [
+          0,
+          {
+            "budget": 2
+          }
+        ]
+      ],
+      "source_sha256": "b00304a0de80021b5b07c18759a2f866180e159020af13549db8283abff1087a"
+    },
+    {
+      "id": "T02",
+      "title": "製品ビジョン・目的定義",
+      "category": "A",
+      "path": "a-planning/T02-product-vision.md",
+      "guidance": [
+        "required",
+        "required",
+        "required"
+      ],
+      "role": "製品の目的と初回提供の位置付けを揃える。",
+      "trigger": "新規・変更の目的、利用者価値、成功条件を定める。",
+      "inputs": "依頼者発言、既存目的、業務課題。",
+      "outputs": "要件定義へ渡す目的と成功条件の案。",
+      "integration": "軽量作業カードの目的欄又は企画書。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "2章1項、G2、9.1",
+      "selection_rules": [
+        [
+          0,
+          {}
+        ]
+      ],
+      "source_sha256": "f2183d5abc6e4fb5db5ea69e29ee7827827deb0d0027ad29b1621769dd55d584"
+    },
+    {
+      "id": "T03",
+      "title": "事業・投資判断書",
+      "category": "A",
+      "path": "a-planning/T03-business-case.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "便益・費用・不確実性を踏まえて投資の可否を判断する。",
+      "trigger": "予算、投資、契約、継続・撤退判断がある。",
+      "inputs": "費用見積、現状負担、選択肢。",
+      "outputs": "投資・見送り・限定試行の判断材料。",
+      "integration": "企画稟議又は予算資料。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "3.1、G3、G5、G9、M1",
+      "selection_rules": [
+        [
+          1,
+          {
+            "budget": 1
+          }
+        ],
+        [
+          0,
+          {
+            "budget": 2
+          }
+        ]
+      ],
+      "source_sha256": "003bb62c9ded26f1f61f09c3e885d2845511c0a5ea38d928c5a457b131463993"
+    },
+    {
+      "id": "T04",
+      "title": "ステークホルダー・役割分担表",
+      "category": "A",
+      "path": "a-planning/T04-roles.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "担当名と意思決定権を対応付ける。",
+      "trigger": "他者・他部門・顧客の決定又は受入がある。",
+      "inputs": "任命、委任、既存体制、依頼。",
+      "outputs": "判断先と受入責任を明確にした役割表。",
+      "integration": "既存統治表又は作業カード。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "3.1〜3.5、G0、M1",
+      "selection_rules": [
+        [
+          0,
+          {
+            "team": 1
+          }
+        ]
+      ],
+      "source_sha256": "387bdbc5d91d7e9f00e3b6bec5430a9d2a43d95c8e5bdaf3ab9471f5b87a76d2"
+    },
+    {
+      "id": "T05",
+      "title": "スコープ・非対象事項定義",
+      "category": "A",
+      "path": "a-planning/T05-scope.md",
+      "guidance": [
+        "required",
+        "required",
+        "required"
+      ],
+      "role": "対象と対象外を固定し範囲変更の判断を可能にする。",
+      "trigger": "全ての作業で目的外の拡大を防ぐ。",
+      "inputs": "依頼、対象資産、受入条件。",
+      "outputs": "境界が読める作業定義。",
+      "integration": "依頼票又は作業カード。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "2章1・3・4項、G2、9.1",
+      "selection_rules": [
+        [
+          0,
+          {}
+        ]
+      ],
+      "source_sha256": "74daa5ec6c3b603b9f0e3d05e113122eb834efbc08e2495db7658a430b76f945"
+    },
+    {
+      "id": "T06",
+      "title": "ロードマップ",
+      "category": "A",
+      "path": "a-planning/T06-roadmap.md",
+      "guidance": [
+        "optional",
+        "required",
+        "required"
+      ],
+      "role": "価値の提供順序と依存を共有する。",
+      "trigger": "複数段階、継続投資、依存するリリースがある。",
+      "inputs": "目的、優先度、依存、見積。",
+      "outputs": "順序と再判断条件を持つ見通し。",
+      "integration": "バックログの節目表示。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G5、G9",
+      "selection_rules": [
+        [
+          2,
+          {
+            "operations": 1
+          }
+        ],
+        [
+          1,
+          {
+            "change": 1
+          }
+        ],
+        [
+          0,
+          {
+            "change": 2
+          }
+        ]
+      ],
+      "source_sha256": "bf73267fbed11d022630b119c84cd1a14a7e504758b5c1c7106d752a61a3e3fb"
+    },
+    {
+      "id": "T07",
+      "title": "RAID台帳",
+      "category": "A",
+      "path": "a-planning/T07-raid.md",
+      "guidance": [
+        "optional",
+        "required",
+        "required"
+      ],
+      "role": "リスク・前提・課題・依存の取りこぼしを防ぐ。",
+      "trigger": "複数のリスク、前提、課題、依存が継続する。",
+      "inputs": "課題、仮定、依存先、観測。",
+      "outputs": "優先順位と対応責任のある台帳。",
+      "integration": "既存課題・リスク管理。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G0〜G4、9.2",
+      "selection_rules": [
+        [
+          2,
+          {
+            "uncertainty": 1
+          }
+        ],
+        [
+          1,
+          {
+            "team": 1
+          }
+        ],
+        [
+          1,
+          {
+            "change": 1
+          }
+        ],
+        [
+          0,
+          {
+            "uncertainty": 2
+          }
+        ],
+        [
+          0,
+          {
+            "change": 2
+          }
+        ]
+      ],
+      "source_sha256": "7894b6dc9ee3dbca696ba7a4a856e1dd10d5489090c7d47fddb28d0a7374f9da"
+    },
+    {
+      "id": "T08",
+      "title": "前提・制約台帳",
+      "category": "A",
+      "path": "a-planning/T08-assumptions.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "仮定と固定制約を区別して判断の前提を共有する。",
+      "trigger": "入力、環境、権限、期限又は制約が判断を左右する。",
+      "inputs": "依頼、環境資料、契約上の制約。",
+      "outputs": "前提の検証状態と見直し条件。",
+      "integration": "要求又は作業カード。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G0、G1、9.1",
+      "selection_rules": [
+        [
+          2,
+          {}
+        ],
+        [
+          0,
+          {
+            "uncertainty": 1
+          }
+        ]
+      ],
+      "source_sha256": "317638923a0bdec2acbe181f06c0935c07586d5ce2414774ce7238965dec757e"
+    },
+    {
+      "id": "T09",
+      "title": "コミュニケーション計画",
+      "category": "A",
+      "path": "a-planning/T09-communication.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "報告・判断依頼・受領をつなぐ。",
+      "trigger": "顧客、外部関係者、送達又はエスカレーションがある。",
+      "inputs": "役割、宛先、情報分類、既存経路。",
+      "outputs": "誰に何をいつ渡すかの計画。",
+      "integration": "統治表又は連絡手順。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "3.1、G0、G8、M1・M3",
+      "selection_rules": [
+        [
+          1,
+          {
+            "team": 1
+          }
+        ],
+        [
+          0,
+          {
+            "team": 2
+          }
+        ],
+        [
+          0,
+          {
+            "delivery": 2
+          }
+        ]
+      ],
+      "source_sha256": "583476a49fbab7757a5f65f6abc5b03eee4b016b1ee7cd30364ae84ba2f6a67e"
+    },
+    {
+      "id": "T10",
+      "title": "便益・成功指標マップ",
+      "category": "A",
+      "path": "a-planning/T10-benefits.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "期待便益を測定可能な指標へ結び付ける。",
+      "trigger": "価値、費用対効果、運用後の投資判断を扱う。",
+      "inputs": "目的、現状値、計測可能性。",
+      "outputs": "便益仮説と評価条件。",
+      "integration": "目的定義又は運用報告。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G2、G9",
+      "selection_rules": [
+        [
+          2,
+          {
+            "operations": 1
+          }
+        ],
+        [
+          0,
+          {
+            "budget": 1
+          }
+        ]
+      ],
+      "source_sha256": "910e892319a97a1ea4074b0b41fa9d97eef245e5cd695a11adcbc4bc5af0cbe4"
+    },
+    {
+      "id": "T11",
+      "title": "問題定義書",
+      "category": "B",
+      "path": "b-discovery-requirements/T11-problem-definition.md",
+      "guidance": [
+        "required",
+        "required",
+        "required"
+      ],
+      "role": "解決策を決める前に問題と対象利用者を特定する。",
+      "trigger": "解決策より先に解くべき問題を固定する。",
+      "inputs": "依頼、観察、既存業務。",
+      "outputs": "調査又は要求化する問題仮説。",
+      "integration": "目的定義。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G2、9.1",
+      "selection_rules": [
+        [
+          0,
+          {}
+        ]
+      ],
+      "source_sha256": "4019314ee4ad451f81b31acff1590d0701af746c5ae98c1efceaa5d51585ecc4"
+    },
+    {
+      "id": "T12",
+      "title": "調査報告書",
+      "category": "B",
+      "path": "b-discovery-requirements/T12-research-report.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "確認範囲と残る不確実性から次の判断を支える。",
+      "trigger": "現状、制約、実現性又は外部条件が未確認。",
+      "inputs": "調査依頼、対象資料、調査範囲。",
+      "outputs": "観測・推論・未確認を分けた調査結果。",
+      "integration": "現状記録又は実現性記録。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G1、G3",
+      "selection_rules": [
+        [
+          0,
+          {
+            "uncertainty": 1
+          }
+        ]
+      ],
+      "source_sha256": "a84092f40016689e716e77bb8d0b0f78b7edf40c89f379738426e79b1fdfea24"
+    },
+    {
+      "id": "T13",
+      "title": "ユーザー調査計画",
+      "category": "B",
+      "path": "b-discovery-requirements/T13-user-research-plan.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "利用者に確かめたい問いと調査方法を設計する。",
+      "trigger": "利用者影響又は顧客体験が主要な判断材料。",
+      "inputs": "目的、利用者区分、既存調査。",
+      "outputs": "調査担当が許可範囲を判断できる計画。",
+      "integration": "調査報告の計画節。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G1、G2",
+      "selection_rules": [
+        [
+          1,
+          {
+            "users": 1
+          }
+        ],
+        [
+          0,
+          {
+            "users": 2
+          }
+        ]
+      ],
+      "source_sha256": "a209530dcc81ce408f059f239d6294803ad85722e1c8efd4a3e71ffa6029e54f"
+    },
+    {
+      "id": "T14",
+      "title": "ユーザー調査結果・洞察報告",
+      "category": "B",
+      "path": "b-discovery-requirements/T14-user-research-findings.md",
+      "guidance": [
+        "optional",
+        "required",
+        "required"
+      ],
+      "role": "観察を要求の候補へ結び付ける。",
+      "trigger": "利用者調査を実施した、又は受入条件に利用者価値を置く。",
+      "inputs": "実施済み調査記録、計画。",
+      "outputs": "観察・解釈・提案を分けた発見。",
+      "integration": "調査報告又は要求の根拠欄。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G1、G2、G7",
+      "selection_rules": [
+        [
+          0,
+          {
+            "users": 1
+          }
+        ]
+      ],
+      "source_sha256": "bf1f16690336fde8b83761e0b8f6d616e8e2a0c6de3ad2a1a6ee4e10e7725114"
+    },
+    {
+      "id": "T15",
+      "title": "サービスブループリント・ユーザージャーニー",
+      "category": "B",
+      "path": "b-discovery-requirements/T15-service-journey.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "利用者行動と裏側の責任・連携の切れ目を見つける。",
+      "trigger": "利用者・部門・外部サービスをまたぐ業務フローがある。",
+      "inputs": "業務手順、利用者観察、連携図。",
+      "outputs": "要求又は設計へ渡す業務の流れ。",
+      "integration": "現行分析又は設計。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G2、G4、M3",
+      "selection_rules": [
+        [
+          2,
+          {
+            "users": 1
+          }
+        ],
+        [
+          0,
+          {
+            "users": 2
+          }
+        ]
+      ],
+      "source_sha256": "7e86ef7d0581e50d40b984e58bb6894f3328b87d400c0a45408d92e9b8fd8cdc"
+    },
+    {
+      "id": "T16",
+      "title": "現行業務・現行システム分析",
+      "category": "B",
+      "path": "b-discovery-requirements/T16-current-state.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "文書上の構成と現状との差を把握する。",
+      "trigger": "既存業務、既存システム又は移行への影響がある。",
+      "inputs": "対象環境の読取許可、構成資料。",
+      "outputs": "変更対象と差異の記録。",
+      "integration": "現状記録。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G1、G4",
+      "selection_rules": [
+        [
+          1,
+          {
+            "change": 1
+          }
+        ],
+        [
+          0,
+          {
+            "change": 2
+          }
+        ]
+      ],
+      "source_sha256": "decc0f77d4ad0a0607ad9c816aacd3b6ef20dc1cf4109b154577830ceff9bd74"
+    },
+    {
+      "id": "T17",
+      "title": "要求仕様書",
+      "category": "B",
+      "path": "b-discovery-requirements/T17-requirements.md",
+      "guidance": [
+        "required",
+        "required",
+        "required"
+      ],
+      "role": "要求を観測可能な受入条件と対象外へ落とす。",
+      "trigger": "新機能、変更又は受入条件の定義が必要。",
+      "inputs": "目的、利用者要求、調査結果。",
+      "outputs": "設計へ渡す要求案と未決事項。",
+      "integration": "PRD又はバックログ。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G2、9.1",
+      "selection_rules": [
+        [
+          0,
+          {
+            "work": 1
+          }
+        ]
+      ],
+      "source_sha256": "fee882e8c561972035b05add759724041be08501ab5f2c28bfdfd2e37e71616d"
+    },
+    {
+      "id": "T18",
+      "title": "ユーザーストーリーマップ・バックログ",
+      "category": "B",
+      "path": "b-discovery-requirements/T18-backlog.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "要求を利用者価値のある作業単位へ分ける。",
+      "trigger": "反復的な実装、優先順位付け又は複数要件がある。",
+      "inputs": "要求ID、優先順位、依存。",
+      "outputs": "実装計画へ渡す候補単位。",
+      "integration": "既存課題管理。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G2、G5",
+      "selection_rules": [
+        [
+          1,
+          {
+            "work": 1
+          }
+        ],
+        [
+          0,
+          {
+            "work": 1,
+            "change": 2
+          }
+        ]
+      ],
+      "source_sha256": "2c196a874f867e265a976b2b31f4aa13c1b0ca8e6dd2175aa2769a54e2ef8e10"
+    },
+    {
+      "id": "T19",
+      "title": "非機能要求一覧",
+      "category": "B",
+      "path": "b-discovery-requirements/T19-nonfunctional.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "品質要求を条件付きの観測可能な形にする。",
+      "trigger": "性能、安全、費用、運用性、保守性が影響する。",
+      "inputs": "利用条件、運用制約、リスク。",
+      "outputs": "品質シナリオと測定案。",
+      "integration": "要求仕様の品質節。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G2、G4",
+      "selection_rules": [
+        [
+          2,
+          {
+            "work": 1
+          }
+        ],
+        [
+          0,
+          {
+            "quality": 1
+          }
+        ]
+      ],
+      "source_sha256": "350c1b9690767ee026887bfdcb856604786fa6ccc48eb53fbed9b118a198cf00"
+    },
+    {
+      "id": "T20",
+      "title": "受入条件・要求トレーサビリティ表",
+      "category": "B",
+      "path": "b-discovery-requirements/T20-traceability.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "要求の抜けと証拠のない合格を検出する。",
+      "trigger": "複数要求、規制、重要な受入又は変更影響がある。",
+      "inputs": "要求基準線、設計、試験・受入記録。",
+      "outputs": "受入責任者が追える対応表。",
+      "integration": "要求又はテスト管理。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "2章25・26項、G2、G4、G7",
+      "selection_rules": [
+        [
+          1,
+          {
+            "work": 1
+          }
+        ],
+        [
+          0,
+          {
+            "work": 1,
+            "quality": 2
+          }
+        ],
+        [
+          0,
+          {
+            "work": 1,
+            "privacy": 2
+          }
+        ]
+      ],
+      "source_sha256": "dc523df9f88e6207ce8a75e61ed84810be62233abb7dc183b209adf13b891482"
+    },
+    {
+      "id": "T21",
+      "title": "解決策選択肢の比較・決定書",
+      "category": "C",
+      "path": "c-design-risk/T21-options.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "採用・代替・撤退を同じ判断軸で比較する。",
+      "trigger": "複数の方式、費用、制約又は撤退条件を比較する。",
+      "inputs": "要求、制約、候補手法、調査証拠。",
+      "outputs": "G4へ渡す採用条件と未確認。",
+      "integration": "実現性記録又はADR。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G3、G4",
+      "selection_rules": [
+        [
+          2,
+          {
+            "work": 1
+          }
+        ],
+        [
+          1,
+          {
+            "uncertainty": 1
+          }
+        ],
+        [
+          0,
+          {
+            "uncertainty": 2
+          }
+        ]
+      ],
+      "source_sha256": "2b58ccc08a294143ea73de2ae942f7b80933f8423f2c750291a4b91697f51cd9"
+    },
+    {
+      "id": "T22",
+      "title": "Architecture Decision Record",
+      "category": "C",
+      "path": "c-design-risk/T22-adr.md",
+      "guidance": [
+        "optional",
+        "required",
+        "required"
+      ],
+      "role": "一つの設計判断と見直し条件を残す。",
+      "trigger": "長期影響のある技術・設計判断を残す。",
+      "inputs": "比較結果、制約、影響要求。",
+      "outputs": "採用理由と帰結を追える判断案。",
+      "integration": "既存ADR又は設計の決定節。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G3、G4、G9",
+      "selection_rules": [
+        [
+          2,
+          {
+            "work": 1
+          }
+        ],
+        [
+          1,
+          {
+            "structure": 1
+          }
+        ],
+        [
+          0,
+          {
+            "structure": 2
+          }
+        ]
+      ],
+      "source_sha256": "799cfbbae98cf6513c481ae13cd76ab05b5b0feda9ca016a54ee959e3dcfd67b"
+    },
+    {
+      "id": "T23",
+      "title": "システムコンテキスト図",
+      "category": "C",
+      "path": "c-design-risk/T23-context.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "対象システムの内外と責任境界を共有する。",
+      "trigger": "複数主体、外部境界、データ流れ又は信頼境界がある。",
+      "inputs": "業務フロー、外部接点、所有者。",
+      "outputs": "詳細設計の範囲を示す境界図・一覧。",
+      "integration": "設計概要。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G1、G4、M2・M3",
+      "selection_rules": [
+        [
+          1,
+          {
+            "structure": 1
+          }
+        ],
+        [
+          0,
+          {
+            "structure": 2
+          }
+        ]
+      ],
+      "source_sha256": "0876ae397da330c1f7e9c893855af7f3936c2522e90e797832cb91b99631e10d"
+    },
+    {
+      "id": "T24",
+      "title": "アーキテクチャ・詳細設計書",
+      "category": "C",
+      "path": "c-design-risk/T24-architecture.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "要求を満たす構造・実行・復旧の設計を示す。",
+      "trigger": "実装前に構成、責務、状態又は制御を固定する。",
+      "inputs": "要求、コンテキスト、選定結果。",
+      "outputs": "実装計画へ渡す構成と制御条件。",
+      "integration": "既存構成文書と実行仕様。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G4",
+      "selection_rules": [
+        [
+          1,
+          {
+            "work": 1
+          }
+        ],
+        [
+          0,
+          {
+            "structure": 1
+          }
+        ]
+      ],
+      "source_sha256": "48c667c06bc47d9d7d794821dcb377d2dadf49f7c9b0e5796b7b65d84474527b"
+    },
+    {
+      "id": "T25",
+      "title": "データモデル・データフロー",
+      "category": "C",
+      "path": "c-design-risk/T25-data-model.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "データの意味・移動・保持・整合を定義する。",
+      "trigger": "データ保存、変換、機密情報又は外部連携がある。",
+      "inputs": "要求、業務情報、保存・連携境界。",
+      "outputs": "実装と検証へ渡すデータ契約。",
+      "integration": "設計のデータ節。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G1、G4、M2・M3",
+      "selection_rules": [
+        [
+          0,
+          {
+            "data": 1
+          }
+        ],
+        [
+          0,
+          {
+            "privacy": 1
+          }
+        ]
+      ],
+      "source_sha256": "11b17a83c9d5152c76b5a02568375c26d58e0fa1c57ca5d9cfe4bc4e820736f7"
+    },
+    {
+      "id": "T26",
+      "title": "API・連携契約書",
+      "category": "C",
+      "path": "c-design-risk/T26-interface-contract.md",
+      "guidance": [
+        "optional",
+        "required",
+        "required"
+      ],
+      "role": "連携双方の入出力と失敗時の約束を揃える。",
+      "trigger": "API、イベント、送達、外部サービス又は利用者効果がある。",
+      "inputs": "接点、認証、要求、提供者仕様。",
+      "outputs": "接続実装・契約試験の入力。",
+      "integration": "API仕様又は連携仕様。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G3、G4、G8、M3",
+      "selection_rules": [
+        [
+          0,
+          {
+            "structure": 2
+          }
+        ]
+      ],
+      "source_sha256": "0d4872c095f0bcd083021a55bd08460395e8778ed1b0f0f0ca5109fa1eb99fdf"
+    },
+    {
+      "id": "T27",
+      "title": "脅威モデリング報告",
+      "category": "C",
+      "path": "c-design-risk/T27-threat-model.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "具体的な資産と境界に対する脅威を検討する。",
+      "trigger": "権限、機密、外部入力、本番又は攻撃面がある。",
+      "inputs": "境界図、資産、入力経路。",
+      "outputs": "設計・試験へ渡す脅威と対策案。",
+      "integration": "設計リスク節。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G4、M2",
+      "selection_rules": [
+        [
+          1,
+          {
+            "attack": 1
+          }
+        ],
+        [
+          0,
+          {
+            "attack": 2
+          }
+        ],
+        [
+          0,
+          {
+            "privacy": 1
+          }
+        ],
+        [
+          0,
+          {
+            "delivery": 2
+          }
+        ],
+        [
+          0,
+          {
+            "structure": 2
+          }
+        ]
+      ],
+      "source_sha256": "a9ef97ad6fb4bc926efa64830889d41e2fff07b71498ad655f99602e381b39f8"
+    },
+    {
+      "id": "T28",
+      "title": "プライバシー影響評価",
+      "category": "C",
+      "path": "c-design-risk/T28-privacy-impact.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "データ利用による人への影響と対応を整理する。",
+      "trigger": "個人情報、機密情報又は規制対象データを扱う。",
+      "inputs": "データ流れ、利用目的、組織の取扱い規則。",
+      "outputs": "責任部署が適用要否・対応を判断する材料。",
+      "integration": "既存の個人情報評価。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G2、G4、M2",
+      "selection_rules": [
+        [
+          0,
+          {
+            "privacy": 1
+          }
+        ]
+      ],
+      "source_sha256": "c959eff0694589e96f75d0366344893bc5059488828ad40027b6ae466f6db4ae"
+    },
+    {
+      "id": "T29",
+      "title": "セキュリティ・品質リスク評価",
+      "category": "C",
+      "path": "c-design-risk/T29-quality-risk.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "品質失敗の優先度と残余リスクを判断する。",
+      "trigger": "安全性、信頼性、品質又は復旧可能性が重要。",
+      "inputs": "要求、障害、設計、運用条件。",
+      "outputs": "試験選定と受入判断のリスク根拠。",
+      "integration": "既存リスク台帳。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G1、G4、G7、M2・M6",
+      "selection_rules": [
+        [
+          0,
+          {
+            "quality": 1
+          }
+        ],
+        [
+          0,
+          {
+            "privacy": 1
+          }
+        ],
+        [
+          0,
+          {
+            "attack": 1
+          }
+        ]
+      ],
+      "source_sha256": "bbcee43f7974f5d679f3ce0853d936d97e22c2a86c189441fe7ac94a7e86ce02"
+    },
+    {
+      "id": "T30",
+      "title": "テスト戦略・検証計画",
+      "category": "D",
+      "path": "d-delivery-operations/T30-test-strategy.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "受入条件に見合う検証範囲と証拠水準を選ぶ。",
+      "trigger": "複数の受入条件、E2E、異常系又は独立確認が必要。",
+      "inputs": "要求、変更影響、リスク、許可。",
+      "outputs": "個別テスト計画の選定根拠。",
+      "integration": "テスト計画の方針節。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G5、G7、7章",
+      "selection_rules": [
+        [
+          2,
+          {
+            "work": 1
+          }
+        ],
+        [
+          1,
+          {
+            "work": 2
+          }
+        ],
+        [
+          0,
+          {
+            "quality": 2
+          }
+        ]
+      ],
+      "source_sha256": "66428c93370a56dd6c0d3e641aeb9c39adb4f8bc87d187a2d1dba1f143b88eaa"
+    },
+    {
+      "id": "T31",
+      "title": "設計レビュー報告",
+      "category": "C",
+      "path": "c-design-risk/T31-design-review.md",
+      "guidance": [
+        "optional",
+        "required",
+        "required"
+      ],
+      "role": "設計の要求適合・未決・裁定を記録する。",
+      "trigger": "設計判断に他者確認、条件付き承認又は裁定が必要。",
+      "inputs": "対象設計版、要求、比較案、レビュー権限。",
+      "outputs": "指摘と条件を伴うレビュー記録。",
+      "integration": "設計書のレビュー節。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G4、6.12",
+      "selection_rules": [
+        [
+          2,
+          {
+            "work": 1
+          }
+        ],
+        [
+          1,
+          {
+            "work": 1,
+            "team": 1
+          }
+        ],
+        [
+          0,
+          {
+            "work": 1,
+            "team": 2
+          }
+        ],
+        [
+          0,
+          {
+            "work": 1,
+            "privacy": 2
+          }
+        ]
+      ],
+      "source_sha256": "213bef2204d92f13312288704831fd5c0e95bf1f887c9dd6846a87360224a315"
+    },
+    {
+      "id": "T32",
+      "title": "実装計画・スプリント計画",
+      "category": "D",
+      "path": "d-delivery-operations/T32-implementation-plan.md",
+      "guidance": [
+        "required",
+        "required",
+        "required"
+      ],
+      "role": "設計を実施・確認・停止できる作業単位に分ける。",
+      "trigger": "実装作業を開始する。",
+      "inputs": "承認された要求・設計、現状。",
+      "outputs": "着手判断の可能な作業カード群。",
+      "integration": "既存実装計画又はスプリント。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G5、9.1",
+      "selection_rules": [
+        [
+          0,
+          {
+            "work": 2
+          }
+        ]
+      ],
+      "source_sha256": "0b842b64e3c23465e3e1a86865554a97118b510a20c8b5f090c7842db6872fed"
+    },
+    {
+      "id": "T33",
+      "title": "進捗・状態報告",
+      "category": "D",
+      "path": "d-delivery-operations/T33-status-report.md",
+      "guidance": [
+        "required",
+        "required",
+        "required"
+      ],
+      "role": "進捗・停滞・判断待ちを実績で報告する。",
+      "trigger": "実装、待機、再試行又は長時間実行を行う。",
+      "inputs": "実行記録、証拠、前回報告。",
+      "outputs": "次の判断に必要な差分。",
+      "integration": "作業カード又はダッシュボード。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "1.6、G6、G9、M4",
+      "selection_rules": [
+        [
+          0,
+          {
+            "work": 2
+          }
+        ],
+        [
+          0,
+          {
+            "operations": 1
+          }
+        ]
+      ],
+      "source_sha256": "a24803d039192ce49feb605710ce3dbf27df76cc96b705e258f62b6589f3e1f6"
+    },
+    {
+      "id": "T34",
+      "title": "変更要求・変更影響評価",
+      "category": "D",
+      "path": "d-delivery-operations/T34-change-request.md",
+      "guidance": [
+        "optional",
+        "required",
+        "required"
+      ],
+      "role": "基準線からの変更と影響を裁定へ渡す。",
+      "trigger": "範囲、契約、受入、設計又は運用へ影響する変更がある。",
+      "inputs": "変更要望、現行要求・設計・契約。",
+      "outputs": "承認範囲と再確認対象。",
+      "integration": "既存変更管理票。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "2章27項、G5、G6、M5",
+      "selection_rules": [
+        [
+          1,
+          {
+            "change": 1
+          }
+        ],
+        [
+          0,
+          {
+            "change": 2
+          }
+        ]
+      ],
+      "source_sha256": "fff1235e98b97a41c5b675816ddf9eced04a9fdddfee00e756932943958fa802"
+    },
+    {
+      "id": "T35",
+      "title": "コードレビュー記録",
+      "category": "D",
+      "path": "d-delivery-operations/T35-code-review.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "差分の正しさと過剰変更を指摘する。",
+      "trigger": "コード又は自動化の変更を受入対象とする。",
+      "inputs": "対象差分、要求、試験結果。",
+      "outputs": "根拠付き指摘と採否案。",
+      "integration": "既存PRレビュー。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G6、G7、6.12",
+      "selection_rules": [
+        [
+          1,
+          {
+            "work": 2
+          }
+        ],
+        [
+          0,
+          {
+            "work": 2,
+            "quality": 2
+          }
+        ]
+      ],
+      "source_sha256": "f5e137cee87160a3cccd6b3bcaabb2aab53dc3d341865ae8953e86da8bf0650d"
+    },
+    {
+      "id": "T36",
+      "title": "テスト計画",
+      "category": "D",
+      "path": "d-delivery-operations/T36-test-plan.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "再現可能な個別試験ケースを定義する。",
+      "trigger": "実装後の検証を行う。",
+      "inputs": "検証方針、要求、環境。",
+      "outputs": "実行担当が準備を判断できるケース。",
+      "integration": "既存テスト管理。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G5、G7、7章",
+      "selection_rules": [
+        [
+          1,
+          {
+            "work": 2
+          }
+        ],
+        [
+          0,
+          {
+            "work": 2,
+            "quality": 2
+          }
+        ]
+      ],
+      "source_sha256": "4c74c73deb40e50688ab790ff2ae4271a58a2226fdfe39a14f97bc209dc6b356"
+    },
+    {
+      "id": "T37",
+      "title": "テスト結果・証跡報告",
+      "category": "D",
+      "path": "d-delivery-operations/T37-test-results.md",
+      "guidance": [
+        "required",
+        "required",
+        "required"
+      ],
+      "role": "試験結果の限界を含めて受入判断へ渡す。",
+      "trigger": "テスト又は検証結果を受入根拠に使う。",
+      "inputs": "計画、実行出力、版、除外記録。",
+      "outputs": "条件ごとの結果と未評価の報告。",
+      "integration": "テスト管理又は完了報告。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "2章25・26項、G7、7章",
+      "selection_rules": [
+        [
+          0,
+          {
+            "work": 2
+          }
+        ],
+        [
+          0,
+          {
+            "quality": 2
+          }
+        ]
+      ],
+      "source_sha256": "e3fb054cfe38c99e75350699dc0e2e44c9bc27d8d8cf0f281a06afed11ddb448"
+    },
+    {
+      "id": "T38",
+      "title": "利用者受入テスト報告",
+      "category": "D",
+      "path": "d-delivery-operations/T38-user-acceptance.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "利用者の業務条件を満たすか判断する。",
+      "trigger": "利用者・業務責任者による受入が必要。",
+      "inputs": "業務要求、検証報告、実利用シナリオ。",
+      "outputs": "業務受入の根拠と条件。",
+      "integration": "既存検収又は受入記録。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G7、G8",
+      "selection_rules": [
+        [
+          1,
+          {
+            "delivery": 1
+          }
+        ],
+        [
+          0,
+          {
+            "delivery": 2
+          }
+        ],
+        [
+          0,
+          {
+            "work": 1,
+            "team": 2
+          }
+        ]
+      ],
+      "source_sha256": "a6de420b190e81f7a0e0d9dc64fbfc057f4d4d88b016bf2711f2ec433e064d36"
+    },
+    {
+      "id": "T39",
+      "title": "リリース判定・準備完了報告",
+      "category": "D",
+      "path": "d-delivery-operations/T39-release-readiness.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "対象版を提供してよいか判断する。",
+      "trigger": "公開、本番、共有環境又は利用者影響がある。",
+      "inputs": "受入証拠、未解決問題、運用準備。",
+      "outputs": "開始・延期・条件の判断記録。",
+      "integration": "リリース判定票。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G8、M3・M5",
+      "selection_rules": [
+        [
+          1,
+          {
+            "delivery": 1
+          }
+        ],
+        [
+          0,
+          {
+            "delivery": 2
+          }
+        ]
+      ],
+      "source_sha256": "9ef13cac49a59d15187f56aec7a7a5a2d68ce83b5bd0623a6903bda2ec87ddad"
+    },
+    {
+      "id": "T40",
+      "title": "展開計画・運用手順書",
+      "category": "D",
+      "path": "d-delivery-operations/T40-deployment-runbook.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "許可された導入と異常時対応を実施可能な手順にする。",
+      "trigger": "展開、送達、復旧又は継続運用を伴う。",
+      "inputs": "対象版、承認、環境、復旧設計。",
+      "outputs": "操作担当への実行手順と終了確認。",
+      "integration": "既存運用手順。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G8、M3・M4・M5",
+      "selection_rules": [
+        [
+          2,
+          {
+            "delivery": 1
+          }
+        ],
+        [
+          1,
+          {
+            "operations": 1
+          }
+        ],
+        [
+          0,
+          {
+            "delivery": 2
+          }
+        ],
+        [
+          0,
+          {
+            "operations": 2
+          }
+        ]
+      ],
+      "source_sha256": "3d8ef94c3faedcc08ea0a27f601073d445bd1305997e2e137a1842bcf5de56f8"
+    },
+    {
+      "id": "T41",
+      "title": "AIユースケース台帳・責任者定義",
+      "category": "E",
+      "path": "e-ai/T41-ai-use-case.md",
+      "guidance": [
+        "required",
+        "required",
+        "required"
+      ],
+      "role": "AIを使う理由と担わせる仕事を明確にする。",
+      "trigger": "AIが判断、生成、実行又は利用者への効果に関与する。",
+      "inputs": "目的、業務フロー、役割、代替手段。",
+      "outputs": "AIの適用範囲と責任の記録。",
+      "integration": "目的・役割定義。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "3.3、G0、G2、9.1",
+      "selection_rules": [
+        [
+          0,
+          {
+            "ai": 1
+          }
+        ]
+      ],
+      "source_sha256": "bc5b586716d4c318e8049782acfa16edb20b50c314ba1ab4499d35c269a86df2"
+    },
+    {
+      "id": "T42",
+      "title": "AI影響評価",
+      "category": "E",
+      "path": "e-ai/T42-ai-impact.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "AIの利用が誰にどう影響するかを判断する。",
+      "trigger": "高影響の判断、外部利用者、データ又は自律操作がある。",
+      "inputs": "用途、データ、操作境界、組織基準。",
+      "outputs": "対策候補と残余影響の判断材料。",
+      "integration": "既存リスク又は影響評価。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G2〜G4、M1・M2・M3",
+      "selection_rules": [
+        [
+          2,
+          {
+            "ai": 1
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 2
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 1,
+            "autonomy": 1
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 1,
+            "privacy": 1
+          }
+        ]
+      ],
+      "source_sha256": "d5043b56d471353cf0983083bf08dc9fe63240f3d4a41043c119be54e16ca497"
+    },
+    {
+      "id": "T43",
+      "title": "データシート・データ来歴・品質報告",
+      "category": "E",
+      "path": "e-ai/T43-data-card.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "データの来歴・利用範囲・偏りを共有する。",
+      "trigger": "学習、評価、変換又は重要なデータ利用を行う。",
+      "inputs": "データ提供資料、構成、収集条件。",
+      "outputs": "学習・評価・利用の適否を考える材料。",
+      "integration": "データ管理台帳。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G1、G4、G7、M2",
+      "selection_rules": [
+        [
+          2,
+          {
+            "data": 1
+          }
+        ],
+        [
+          0,
+          {
+            "data": 2
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 1,
+            "model": 2
+          }
+        ]
+      ],
+      "source_sha256": "9049eab4a4299369da6d357099fe4abf3b4a5ec6eb8a8b81af03e103c7a2d8a4"
+    },
+    {
+      "id": "T44",
+      "title": "データスキーマ・妥当性検証報告",
+      "category": "E",
+      "path": "e-ai/T44-data-validation.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "入力・変換後の品質条件と不一致を記録する。",
+      "trigger": "AI又はシステムの入力データ品質が結果を左右する。",
+      "inputs": "スキーマ、データ版、処理経路。",
+      "outputs": "異常の影響と処理可否。",
+      "integration": "データ契約又はテスト報告。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G1、G4、G7",
+      "selection_rules": [
+        [
+          1,
+          {
+            "data": 1
+          }
+        ],
+        [
+          0,
+          {
+            "data": 2
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 1,
+            "model": 2
+          }
+        ]
+      ],
+      "source_sha256": "9b143db93e1324a3de7b5fe7af69dea0f98b7a7fb68fa0d33a6d0b89b9eee7d0"
+    },
+    {
+      "id": "T45",
+      "title": "モデルカード",
+      "category": "E",
+      "path": "e-ai/T45-model-card.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "モデルの用途・限界と評価条件を共有する。",
+      "trigger": "モデルを訓練、調整、提供又は選定する。外部モデルの単純利用は供給者資料の参照でよい。",
+      "inputs": "提供者のモデル資料、自前の変更・評価記録。",
+      "outputs": "選定又は提供時の利用条件。",
+      "integration": "提供者カードへの追記又は選定記録。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G3、G4",
+      "selection_rules": [
+        [
+          0,
+          {
+            "ai": 1,
+            "model": 1
+          }
+        ]
+      ],
+      "source_sha256": "e1fe4addbaf5773e0d2957321e6062da234dd556ab2bcc11713028ed4a82adcc"
+    },
+    {
+      "id": "T46",
+      "title": "システムカード・利用条件・限界の説明",
+      "category": "E",
+      "path": "e-ai/T46-system-card.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "AIを含むシステム全体の利用条件を伝える。",
+      "trigger": "AIを組み込んだシステムを利用者又は他組織へ提供する。",
+      "inputs": "構成、モデル、評価、監督方針。",
+      "outputs": "利用者が使い方と限界を理解できる説明。",
+      "integration": "製品説明又は運用手順。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "3.3、G4、G8、G9",
+      "selection_rules": [
+        [
+          1,
+          {
+            "ai": 2,
+            "delivery": 1
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 2,
+            "delivery": 2
+          }
+        ]
+      ],
+      "source_sha256": "b26c8d748524624e0871c527ae56c6aac7234a2515ecb54b7244442acb36b5a0"
+    },
+    {
+      "id": "T47",
+      "title": "AI評価・TEVV報告",
+      "category": "E",
+      "path": "e-ai/T47-ai-evaluation.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "AIの振舞いを固定した条件で評価する。",
+      "trigger": "AI出力が受入、利用者影響又は自律操作に影響する。",
+      "inputs": "用途、評価基準、入力集合、設定。",
+      "outputs": "条件別の結果・限界・採否案。",
+      "integration": "テスト戦略・計画・結果のAI節。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G4、G7、7章",
+      "selection_rules": [
+        [
+          1,
+          {
+            "ai": 1
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 2
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 1,
+            "model": 1
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 1,
+            "autonomy": 1
+          }
+        ]
+      ],
+      "source_sha256": "1ba04e9687f1e2ee09572cb6a54f40fa6c06304cfba1bc6e1a547197c7a6aad3"
+    },
+    {
+      "id": "T48",
+      "title": "レッドチーム・敵対的テスト報告",
+      "category": "E",
+      "path": "e-ai/T48-adversarial-test.md",
+      "guidance": [
+        "optional",
+        "recommended",
+        "required"
+      ],
+      "role": "想定する攻撃や誤用に対する境界を評価する。",
+      "trigger": "外部入力、権限、機密、本番又は攻撃耐性が重要。",
+      "inputs": "脅威、許可、隔離環境、判定基準。",
+      "outputs": "対策の弱点と残余リスク。",
+      "integration": "脅威モデル又はテスト記録。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G4、G7、M2・M6",
+      "selection_rules": [
+        [
+          1,
+          {
+            "attack": 1
+          }
+        ],
+        [
+          0,
+          {
+            "attack": 2
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 1,
+            "autonomy": 2
+          }
+        ]
+      ],
+      "source_sha256": "b5f976e0055a729ff26aead13c893dde720fec44b74ee9553c3740508013d044"
+    },
+    {
+      "id": "T49",
+      "title": "人間の監督・権限境界・エスカレーション方針",
+      "category": "E",
+      "path": "e-ai/T49-human-oversight.md",
+      "guidance": [
+        "required",
+        "required",
+        "required"
+      ],
+      "role": "AIの許可内継続と人間の判断境界を定義する。",
+      "trigger": "AIが提案以外に、実行、連携、継続処理又は高影響判断へ関与する。",
+      "inputs": "委任、作業カード、状態・費用制約。",
+      "outputs": "制御設計・運用へ渡す監督方針。",
+      "integration": "役割表・実行仕様。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "2章10〜18項、3.3、G0、G4、M1〜M4",
+      "selection_rules": [
+        [
+          2,
+          {
+            "ai": 1
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 2
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 1,
+            "autonomy": 1
+          }
+        ]
+      ],
+      "source_sha256": "9b2e2ed858f2bcf26d06fd75dce3c24850dba443c8abc131cc504b35cf0fc387"
+    },
+    {
+      "id": "T50",
+      "title": "モデル監視・変更・AIインシデント報告",
+      "category": "E",
+      "path": "e-ai/T50-ai-operations.md",
+      "guidance": [
+        "recommended",
+        "required",
+        "required"
+      ],
+      "role": "運用中の品質・費用・変更・障害をつなげる。",
+      "trigger": "AIを継続運用し、変更、再試行、障害又は費用を管理する。",
+      "inputs": "稼働記録、評価条件、変更、監督方針。",
+      "outputs": "継続・復旧・再評価の判断材料。",
+      "integration": "既存運用ダッシュボード又は障害記録。共通情報は正本の版・節への参照でよい。",
+      "standard_refs": "G6、G9、M4",
+      "selection_rules": [
+        [
+          1,
+          {
+            "ai": 1,
+            "operations": 1
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 1,
+            "operations": 2
+          }
+        ],
+        [
+          0,
+          {
+            "ai": 1,
+            "autonomy": 2
+          }
+        ]
+      ],
+      "source_sha256": "10604d923a578dd2bcd8b0b533f21f9f2e98d5cd9aef26e27f12f2892d7e2387"
+    }
+  ]
+}

@@ -16,6 +16,6 @@ AIを含む作業を、目的・権限・証拠・受入の曖昧さから守る
 - [共通骨格・品質基準・ゲート報告への接続](templates/DESIGN.md)
 - [参考文献台帳](templates/REFERENCES.md)
 - [テンプレート集の横断レビュー](templates/REVIEW.md)
-- [運用補助資料 v0.5（規範外）](support/README.md)
+- [運用補助資料 v0.6（規範外）](support/README.md)
 
 テンプレートは選択・統合して利用する。50文書の一括作成を要求せず、運用標準や既存のプロジェクト管理体制を上書きしない。

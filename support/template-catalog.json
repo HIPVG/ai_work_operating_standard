@@ -13,7 +13,7 @@
     "source_sha256": "SHA256 of UTF-8 template text with CRLF normalized to LF. Source hashes use the same normalization."
   },
   "source_hashes": {
-    "template_list": "008a37ef96e515c635d27f2e52b7500a333e1f3d4a0a210b07cc20867c1e1406",
+    "template_list": "b322bded040a07f83fd589d92a443d45942678b1eaec2e02e6d479dc51753b53",
     "selection_rules": "6cb3a22a6b71f340fd6bd8c60993ebd89e87ec9783ee424d40df7d5a691b99e9"
   },
   "selection": {
@@ -976,7 +976,7 @@
           }
         ]
       ],
-      "source_sha256": "48c667c06bc47d9d7d794821dcb377d2dadf49f7c9b0e5796b7b65d84474527b"
+      "source_sha256": "34a8ddd02445b19c6cbf1ab2b6f78ff7ca0468036be6d11a23bd2a73fc9f54a0"
     },
     {
       "id": "T25",
@@ -1034,7 +1034,7 @@
           }
         ]
       ],
-      "source_sha256": "0d4872c095f0bcd083021a55bd08460395e8778ed1b0f0f0ca5109fa1eb99fdf"
+      "source_sha256": "8a32390f9ed98f1ce8fd2b3fb831b7071142eb50ff1907a505f4043b2f289896"
     },
     {
       "id": "T27",
@@ -1186,7 +1186,7 @@
           }
         ]
       ],
-      "source_sha256": "66428c93370a56dd6c0d3e641aeb9c39adb4f8bc87d187a2d1dba1f143b88eaa"
+      "source_sha256": "dedda64f0794df5459f6b8368b34ef6770b9d6b1f5386437b4cd9da422114d37"
     },
     {
       "id": "T31",
@@ -1421,7 +1421,7 @@
           }
         ]
       ],
-      "source_sha256": "e3fb054cfe38c99e75350699dc0e2e44c9bc27d8d8cf0f281a06afed11ddb448"
+      "source_sha256": "5d533360664e495ae0a32e376bea40d7ab1352ab3a3a00fc945d401c7f808c95"
     },
     {
       "id": "T38",
@@ -1492,7 +1492,7 @@
           }
         ]
       ],
-      "source_sha256": "9ef13cac49a59d15187f56aec7a7a5a2d68ce83b5bd0623a6903bda2ec87ddad"
+      "source_sha256": "7104b10514eb4f6f58442dfd01f0d73c92cc32cdc75eea3caf4a6b7bf6906365"
     },
     {
       "id": "T40",
@@ -1536,7 +1536,7 @@
           }
         ]
       ],
-      "source_sha256": "3d8ef94c3faedcc08ea0a27f601073d445bd1305997e2e137a1842bcf5de56f8"
+      "source_sha256": "70a9d47324265a84d53940c8bf9f2ca4f930f7e1b107e271bd842bce4b5c9978"
     },
     {
       "id": "T41",
@@ -1871,7 +1871,7 @@
           }
         ]
       ],
-      "source_sha256": "9b2e2ed858f2bcf26d06fd75dce3c24850dba443c8abc131cc504b35cf0fc387"
+      "source_sha256": "74e7ead7395b2899a3fcc38574e89bc42d4195ca1c7a17830a926c4a22c8bc05"
     },
     {
       "id": "T50",
@@ -1912,7 +1912,7 @@
           }
         ]
       ],
-      "source_sha256": "10604d923a578dd2bcd8b0b533f21f9f2e98d5cd9aef26e27f12f2892d7e2387"
+      "source_sha256": "d35ec68e6c1f6c534ce80de7ff97fb4d5cb190010a7e45ea22ab85ee8190b7cf"
     }
   ]
 }

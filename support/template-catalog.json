@@ -13,7 +13,7 @@
     "source_sha256": "SHA256 of UTF-8 template text with CRLF normalized to LF. Source hashes use the same normalization."
   },
   "source_hashes": {
-    "template_list": "008a37ef96e515c635d27f2e52b7500a333e1f3d4a0a210b07cc20867c1e1406",
+    "template_list": "a4b94cca9ac0c08690937595ba17a5f25be616f5b74440f3bca4b153b81bb51d",
     "selection_rules": "6cb3a22a6b71f340fd6bd8c60993ebd89e87ec9783ee424d40df7d5a691b99e9"
   },
   "selection": {
@@ -263,7 +263,7 @@
           {}
         ]
       ],
-      "source_sha256": "f2183d5abc6e4fb5db5ea69e29ee7827827deb0d0027ad29b1621769dd55d584"
+      "source_sha256": "4a59c4e60c3ffe373b4b1f5dc9667560c35cec6d28ffe561fff92d8815881557"
     },
     {
       "id": "T03",
@@ -731,7 +731,7 @@
           }
         ]
       ],
-      "source_sha256": "fee882e8c561972035b05add759724041be08501ab5f2c28bfdfd2e37e71616d"
+      "source_sha256": "e5d1685737504aa5d46f3292be94637365041c60b992bd64c4b93265e9ec9870"
     },
     {
       "id": "T18",
@@ -1186,7 +1186,7 @@
           }
         ]
       ],
-      "source_sha256": "66428c93370a56dd6c0d3e641aeb9c39adb4f8bc87d187a2d1dba1f143b88eaa"
+      "source_sha256": "453831b556d47532209024edc7f35142c88225d7920ee1a257d838234690d12a"
     },
     {
       "id": "T31",
@@ -1233,7 +1233,7 @@
           }
         ]
       ],
-      "source_sha256": "213bef2204d92f13312288704831fd5c0e95bf1f887c9dd6846a87360224a315"
+      "source_sha256": "ee731ded21826d3fafd1793b2ebe0b3e787b1e1f8a8870f628a7fab1e6648860"
     },
     {
       "id": "T32",
@@ -1259,7 +1259,7 @@
           }
         ]
       ],
-      "source_sha256": "0b842b64e3c23465e3e1a86865554a97118b510a20c8b5f090c7842db6872fed"
+      "source_sha256": "a1aba31fe3316aefed6d7c31879c4630b1f3f7dd3bb4739643246b9027416220"
     },
     {
       "id": "T33",
@@ -1356,7 +1356,7 @@
           }
         ]
       ],
-      "source_sha256": "f5e137cee87160a3cccd6b3bcaabb2aab53dc3d341865ae8953e86da8bf0650d"
+      "source_sha256": "cb14a28a718d43311cf41e7fa8a7fe79dbf5141a6f78430736287ffca4f26ab3"
     },
     {
       "id": "T36",
@@ -1421,7 +1421,7 @@
           }
         ]
       ],
-      "source_sha256": "e3fb054cfe38c99e75350699dc0e2e44c9bc27d8d8cf0f281a06afed11ddb448"
+      "source_sha256": "e9215e4ee20591e21fa20ad0cf4d0051a9d90d025812bf15195a3e5c30f5710f"
     },
     {
       "id": "T38",
@@ -1871,7 +1871,7 @@
           }
         ]
       ],
-      "source_sha256": "9b2e2ed858f2bcf26d06fd75dce3c24850dba443c8abc131cc504b35cf0fc387"
+      "source_sha256": "cb86048cfa05987428045afe8a5bb397fe33a46e115d3ab259585fae4b654dd4"
     },
     {
       "id": "T50",
@@ -1912,7 +1912,7 @@
           }
         ]
       ],
-      "source_sha256": "10604d923a578dd2bcd8b0b533f21f9f2e98d5cd9aef26e27f12f2892d7e2387"
+      "source_sha256": "23e1cb8e0898c393b6e8d2b70df792d4d982a09747c4ec59e2196e89d24a8bb7"
     }
   ]
 }

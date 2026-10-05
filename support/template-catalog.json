@@ -13,7 +13,7 @@
     "source_sha256": "SHA256 of UTF-8 template text with CRLF normalized to LF. Source hashes use the same normalization."
   },
   "source_hashes": {
-    "template_list": "a4b94cca9ac0c08690937595ba17a5f25be616f5b74440f3bca4b153b81bb51d",
+    "template_list": "d19bbf6c2054cae62aa9558f0689822871151c8998adb625f11e59686e7e48d7",
     "selection_rules": "6cb3a22a6b71f340fd6bd8c60993ebd89e87ec9783ee424d40df7d5a691b99e9"
   },
   "selection": {
@@ -1259,7 +1259,7 @@
           }
         ]
       ],
-      "source_sha256": "a1aba31fe3316aefed6d7c31879c4630b1f3f7dd3bb4739643246b9027416220"
+      "source_sha256": "aacec1e02f4e7e9d0ef793e59377348d76bc7d0518126b2e391c078b176e4fd5"
     },
     {
       "id": "T33",
@@ -1356,7 +1356,7 @@
           }
         ]
       ],
-      "source_sha256": "cb14a28a718d43311cf41e7fa8a7fe79dbf5141a6f78430736287ffca4f26ab3"
+      "source_sha256": "943d438c5c74c1bfda06e754f7618e6881b289b579f16917a1747259c742b3a7"
     },
     {
       "id": "T36",
@@ -1389,7 +1389,7 @@
           }
         ]
       ],
-      "source_sha256": "4c74c73deb40e50688ab790ff2ae4271a58a2226fdfe39a14f97bc209dc6b356"
+      "source_sha256": "4c5fd3970580c57f3f14284839146a8f14b4fda192c49f26b8bd72782fd30c42"
     },
     {
       "id": "T37",
@@ -1421,7 +1421,7 @@
           }
         ]
       ],
-      "source_sha256": "e9215e4ee20591e21fa20ad0cf4d0051a9d90d025812bf15195a3e5c30f5710f"
+      "source_sha256": "c79dcaef6a3de18c04e5e0ecb7c9d4007a4c61a18928be50364b0f6b5a2d5fd5"
     },
     {
       "id": "T38",
@@ -1912,7 +1912,7 @@
           }
         ]
       ],
-      "source_sha256": "23e1cb8e0898c393b6e8d2b70df792d4d982a09747c4ec59e2196e89d24a8bb7"
+      "source_sha256": "be6dbb2796d52e5a251a5481169be5d743b9b6dc5059a8217e6ff7578d911f04"
     }
   ]
 }

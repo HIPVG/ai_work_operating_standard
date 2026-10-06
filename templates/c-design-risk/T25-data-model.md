@@ -5,7 +5,7 @@
 対象: C 設計・リスク — データの意味・移動・保持・整合を定義する
 適用例: 軽量・中規模・大規模案件のうち、下記トリガーに該当するもの
 
-[一覧](../README.md) | [共通設計・品質基準](../DESIGN.md) | [運用標準](../../01-ai_work_operating_standard_integrated_v1_0_2026-09.md)
+[一覧](../README.md) | [共通設計・品質基準](../DESIGN.md) | [運用標準](../../01-ai_work_operating_standard_v1_2_2026-10.md)
 
 ## 使う場面と範囲
 

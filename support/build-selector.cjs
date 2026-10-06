@@ -31,7 +31,7 @@ const templates = rows.map(m => {
 const {rules, ...selection} = policy;
 const catalog = {
   schema_version:'0.2',status:'non-normative-index',
-  canonical_sources:{template_contents:'../templates/',selection_guidance:'../templates/README.md',governing_standard:'../01-ai_work_operating_standard_integrated_v1_0_2026-09.md',selection_rules:'selector-rules.json'},
+  canonical_sources:{template_contents:'../templates/',selection_guidance:'../templates/README.md',governing_standard:'../01-ai_work_operating_standard_v1_1_2026-10.md',selection_rules:'selector-rules.json'},
   field_notes:{guidance:'Original [lightweight, medium, large] reference labels, NOT Loose/Medium/Tight or normative requirements.',selection_rules:'Editorial selection suggestions, separate from the standard and project decisions.',source_sha256:'SHA256 of UTF-8 template text with CRLF normalized to LF. Source hashes use the same normalization.'},
   source_hashes:{template_list:sha(list),selection_rules:sha(read('support/selector-rules.json'))},selection,templates
 };

@@ -5,7 +5,7 @@
 対象: B 調査・要求 — 利用者行動と裏側の責任・連携の切れ目を見つける
 適用例: 軽量・中規模・大規模案件のうち、下記トリガーに該当するもの
 
-[一覧](../README.md) | [共通設計・品質基準](../DESIGN.md) | [運用標準](../../01-ai_work_operating_standard_v1_1_2026-10.md)
+[一覧](../README.md) | [共通設計・品質基準](../DESIGN.md) | [運用標準](../../01-ai_work_operating_standard_integrated_v1_0_2026-09.md)
 
 ## 使う場面と範囲
 

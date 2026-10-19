@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" agent="Codex">
+  <diagram id="test-policy-builder-revised" name="現行・処理フロー（v1.6）">
+    <mxGraphModel dx="1550" dy="1510" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1580" pageHeight="1550" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;テスト方針文言ビルダー｜v1.6対応&lt;/b&gt;&lt;br&gt;文案の作成・編集と、案件側の受入判断を分ける" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#123846;strokeColor=#123846;fontColor=#ffffff;fontSize=16;align=center;verticalAlign=middle;spacing=10;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="40" y="25" width="1500" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="step1" value="&lt;b&gt;1　作成段階と受入の単位を選ぶ&lt;/b&gt;&lt;br&gt;G0 受付・入力完全性の暫定方針／G5 実装計画への記載案&lt;br&gt;提供範囲全体／既存製品の変更差分" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4f6;strokeColor=#6fa7b2;fontColor=#193642;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="150" width="800" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="step2" value="&lt;b&gt;2　利用目的・提供範囲・全体で達成すべき結果を入力&lt;/b&gt;&lt;br&gt;変更差分なら変更部分の結果と、維持する既存条件も入力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4f6;strokeColor=#6fa7b2;fontColor=#193642;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="310" width="800" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="step3" value="&lt;b&gt;3　具体的な影響を選ぶ&lt;/b&gt;&lt;br&gt;G5 実装計画だけ、G4 基本設計・制御設計の経路ID・既存結果・変更が及ぶ箇所・概算工数を表示" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4f6;strokeColor=#6fa7b2;fontColor=#193642;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="470" width="800" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="step4" value="&lt;b&gt;4　利用者が「文案を作成」を押す&lt;/b&gt;&lt;br&gt;入力中に文案を勝手に上書きしない" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dff2ed;strokeColor=#4b9d80;fontColor=#193642;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="630" width="800" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="step5" value="&lt;b&gt;5　ビルダーが未確定事項・矛盾を抽出&lt;/b&gt;&lt;br&gt;入力不足でも止めず、文案へ明示する" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dff2ed;strokeColor=#4b9d80;fontColor=#193642;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="770" width="800" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="step6" value="&lt;b&gt;6　選択した段階のMarkdown文案を作る&lt;/b&gt;&lt;br&gt;受入の単位を明記。差分の確認を製品全体の受入へ広げない" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dff2ed;strokeColor=#4b9d80;fontColor=#193642;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="920" width="800" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="step7" value="&lt;b&gt;7　利用者が画面で文案を確認・編集&lt;/b&gt;&lt;br&gt;入力を変えても編集中の文案は保持。再生成は明示操作" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4df;strokeColor=#cb9e4e;fontColor=#684800;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="1080" width="800" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="step8" value="&lt;b&gt;8　必要ならMarkdown保存またはコピー&lt;/b&gt;&lt;br&gt;現在画面にある編集済み文案を出力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4df;strokeColor=#cb9e4e;fontColor=#684800;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="1235" width="800" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="step9" value="&lt;b&gt;9　案件側で要求・設計・証拠と照合し採否を決める&lt;/b&gt;&lt;br&gt;受入・安全・実行許可はビルダーでは判定しない" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4df;strokeColor=#cb9e4e;fontColor=#684800;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="1380" width="800" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" value="&lt;b&gt;G0 受付・入力完全性&lt;/b&gt;&lt;br&gt;個々の試験と工数を確定しない" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b8c9ce;fontColor=#193642;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="320" width="360" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="note2" value="&lt;b&gt;G5 実装計画&lt;/b&gt;&lt;br&gt;G4 基本設計・制御設計の経路と既存結果は参照して照合する。ここで新規決定しない。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b8c9ce;fontColor=#193642;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="480" width="360" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="note3" value="&lt;b&gt;G7 検証・G8 受入・送達&lt;/b&gt;&lt;br&gt;G5文案で見積りと許可上限、未達の処置を区別。受入・工程通過は自動判定しない。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b8c9ce;fontColor=#193642;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="930" width="360" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="note4" value="&lt;b&gt;正式な受入の範囲&lt;/b&gt;&lt;br&gt;変更差分の合格だけでは製品全体の受入済みとしない。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b8c9ce;fontColor=#193642;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="1385" width="360" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52717b;fontColor=#29444d;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="step1" target="step2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52717b;fontColor=#29444d;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="step2" target="step3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52717b;fontColor=#29444d;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="step3" target="step4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52717b;fontColor=#29444d;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="step4" target="step5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52717b;fontColor=#29444d;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="step5" target="step6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52717b;fontColor=#29444d;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="step6" target="step7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52717b;fontColor=#29444d;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="step7" target="step8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#52717b;fontColor=#29444d;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="step8" target="step9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="test-policy-builder" name="旧案・レビュー注記">
+    <mxGraphModel dx="2838" dy="701" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1660" pageHeight="1520" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#123846;strokeColor=#123846;fontColor=#ffffff;fontSize=16;align=center;verticalAlign=middle;spacing=10;fontSize=21;" value="&lt;b&gt;テスト方針文言ビルダー｜処理フロー&lt;/b&gt;&lt;br&gt;入力から未確定事項付き文案まで。受入・安全・許可は自動判定しない。" vertex="1">
+          <mxGeometry height="80" width="1580" x="40" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4f6;strokeColor=#b8d3dc;fontColor=#123846;fontSize=16;align=center;verticalAlign=middle;spacing=10;verticalAlign=top;align=left;spacingLeft=20;spacingTop=16;fontSize=20;" value="&lt;b&gt;利用者の入力&lt;/b&gt;" vertex="1">
+          <mxGeometry height="1320" width="400" x="40" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_logic" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f2f8f5;strokeColor=#bedbcf;fontColor=#123846;fontSize=16;align=center;verticalAlign=middle;spacing=10;verticalAlign=top;align=left;spacingLeft=20;spacingTop=16;fontSize=20;" value="&lt;b&gt;単一HTML内の処理&lt;/b&gt;" vertex="1">
+          <mxGeometry height="1320" width="570" x="470" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_output" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8ed;strokeColor=#ead5ab;fontColor=#123846;fontSize=16;align=center;verticalAlign=middle;spacing=10;verticalAlign=top;align=left;spacingLeft=20;spacingTop=16;fontSize=20;" value="&lt;b&gt;出力と案件側の判断&lt;/b&gt;" vertex="1">
+          <mxGeometry height="1320" width="550" x="1070" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6fa6b2;fontColor=#173746;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;1　フォーム入力&lt;/b&gt;&lt;br&gt;利用目的・提供範囲・受入条件・利用制約&lt;br&gt;具体的な影響・G4経路IDと対象版&lt;br&gt;影響する境界・既存証拠・概算工数" vertex="1">
+          <mxGeometry height="205" width="320" x="80" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="none" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6fa6b2;fontColor=#173746;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;「影響なし」の確認&lt;/b&gt;&lt;br&gt;影響の選択と矛盾すれば未確定として表示" vertex="1">
+          <mxGeometry height="105" width="320" x="80" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="privacy" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6fa6b2;fontColor=#173746;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;入力の取扱い&lt;/b&gt;&lt;br&gt;外部送信・自動保存なし&lt;br&gt;再読込で初期化" vertex="1">
+          <mxGeometry height="105" width="320" x="80" y="675" as="geometry" />
+        </mxCell>
+        <mxCell id="read" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#57a18c;fontColor=#173746;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;2　入力を読み取る&lt;/b&gt;&lt;br&gt;空欄は推測で補わない" vertex="1">
+          <mxGeometry height="95" width="450" x="530" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="check" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#57a18c;fontColor=#173746;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;3　未確定・矛盾を抽出&lt;/b&gt;&lt;br&gt;受入条件／影響／境界／試行の制約&lt;br&gt;G4経路・既存証拠・G5工数" vertex="1">
+          <mxGeometry height="125" width="450" x="530" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="g0" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#57a18c;fontColor=#173746;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;4　G0暫定方針を組み立てる&lt;/b&gt;&lt;br&gt;目的・提供範囲・具体的影響・制約&lt;br&gt;試験件数と工数は確定しない" vertex="1">
+          <mxGeometry height="115" width="450" x="530" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="g5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#57a18c;fontColor=#173746;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;5　G5計画への展開文を組み立てる&lt;/b&gt;&lt;br&gt;既存証拠を先に照合／判断の視点を選択&lt;br&gt;経路差・代表試験・工数の幅と前提を明示" vertex="1">
+          <mxGeometry height="145" width="450" x="530" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="g78" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#57a18c;fontColor=#173746;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;6　G7・G8の判断文を添える&lt;/b&gt;&lt;br&gt;追加・停止の条件／証拠と利用可能範囲の区別" vertex="1">
+          <mxGeometry height="100" width="450" x="530" y="925" as="geometry" />
+        </mxCell>
+        <mxCell id="status" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4dc;strokeColor=#d5a34d;fontColor=#694600;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;未確定事項を表示&lt;/b&gt;&lt;br&gt;文案内に【未確定】を残す&lt;br&gt;入力不足でも生成を止めない" vertex="1">
+          <mxGeometry height="125" width="450" x="1120" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="draft" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d5a34d;fontColor=#173746;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;7　文案を画面に表示&lt;/b&gt;&lt;br&gt;G0・G5・G7・G8の記載案&lt;br&gt;未承認・未確定を明記" vertex="1">
+          <mxGeometry height="125" width="450" x="1120" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="save" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d5a34d;fontColor=#173746;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;8　利用者がコピー／TXT保存&lt;/b&gt;&lt;br&gt;案件の既存記録に移すための出力" vertex="1">
+          <mxGeometry height="95" width="450" x="1120" y="1130" as="geometry" />
+        </mxCell>
+        <mxCell id="review" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4dc;strokeColor=#d5a34d;fontColor=#694600;fontSize=16;align=center;verticalAlign=middle;spacing=10;" value="&lt;b&gt;9　案件側で照合して採否を決める&lt;/b&gt;&lt;br&gt;受入条件・G4経路・証拠・権限と照合&lt;br&gt;必要な試験、受入、安全、実行許可を判断" vertex="1">
+          <mxGeometry height="135" width="450" x="1120" y="1300" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="input" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#4d6b79;fontColor=#284554;fontSize=14;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="read" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="read" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#4d6b79;fontColor=#284554;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="check" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="check" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#4d6b79;fontColor=#284554;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="g0" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="g0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#4d6b79;fontColor=#284554;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="g5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="g5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#4d6b79;fontColor=#284554;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="g78" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="check" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b27a27;fontColor=#284554;fontSize=14;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="status" value="未確定・矛盾">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="g78" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#4d6b79;fontColor=#284554;fontSize=14;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="draft" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="status" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b27a27;fontColor=#284554;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="draft" value="併記">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="draft" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#4d6b79;fontColor=#284554;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="save" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="save" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#4d6b79;fontColor=#284554;fontSize=14;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="review" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Mt4foRv6xLxfgBkKYXCu-1" parent="1" style="shape=wedgeCallout;whiteSpace=wrap;html=1;tipX=0.667;tipY=0.938;" value="G4経路ID、対象版、影響する境界、既存証拠は何を意味するのかわからない。&lt;br&gt;また、ここで決定しているかも不明。必須でなければ、詳細オプション等とするべき" vertex="1">
+          <mxGeometry height="105" width="220" x="-130" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="xOGDJ94vRLhdCFiyJUMQ-1" parent="1" style="shape=wedgeCallout;whiteSpace=wrap;html=1;tipX=-0.5;tipY=0.875;" value="これ、いる？　９でMDフォーマットで出せばよいのでは？&lt;br&gt;画面内で編集できる、だったらまだわかる&lt;br&gt;コピーボタンがついてて、一回外のエディタで作業して、はりつけるとか" vertex="1">
+          <mxGeometry height="80" width="240" x="1520" y="1090" as="geometry" />
+        </mxCell>
+        <mxCell id="xOGDJ94vRLhdCFiyJUMQ-2" parent="1" style="shape=wedgeCallout;whiteSpace=wrap;html=1;tipX=-0.5;tipY=0.875;" value="７．８．で決定した方針からここで文言作るのであれば、なおさら８がよくわかんない。" vertex="1">
+          <mxGeometry height="80" width="240" x="1540" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="xOGDJ94vRLhdCFiyJUMQ-3" parent="1" style="shape=wedgeCallout;whiteSpace=wrap;html=1;tipX=-0.5;tipY=0.875;" value="入力内容確認？&lt;br&gt;文案？&lt;br&gt;方針？&lt;br&gt;９で文言作るのなら確認と方針が正しい気がする" vertex="1">
+          <mxGeometry height="80" width="300" x="1500" y="860" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

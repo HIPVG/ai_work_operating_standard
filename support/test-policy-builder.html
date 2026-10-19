@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>テスト方針文言ビルダー</title>
+  <style>
+    :root { color-scheme:light; --ink:#19323d; --muted:#566e79; --line:#d3e0e4; --wash:#f3f7f8; --paper:#fff; --teal:#007d78; --deep:#005d59; --warn:#7d5100; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--wash); font:15px/1.6 system-ui,-apple-system,"Yu Gothic UI","Meiryo",sans-serif; }
+    header { background:#123846; color:#fff; padding:29px max(20px,calc((100vw - 1400px)/2)); }
+    header h1 { margin:0 0 5px; font-size:clamp(24px,3vw,32px); line-height:1.25; }
+    header p { margin:0; color:#dbe9eb; max-width:850px; }
+    main { max-width:1440px; margin:auto; padding:22px; display:grid; grid-template-columns:minmax(350px,0.95fr) minmax(440px,1.05fr); gap:20px; align-items:start; }
+    .panel { background:var(--paper); border:1px solid var(--line); border-radius:13px; box-shadow:0 6px 20px #1238460a; overflow:hidden; }
+    .panel-head { padding:17px 21px 12px; border-bottom:1px solid var(--line); }
+    .panel-head h2 { margin:0; font-size:20px; }
+    .panel-head p { margin:3px 0 0; color:var(--muted); font-size:13px; }
+    .body { padding:19px 21px 23px; }
+    fieldset { border:0; padding:0; margin:0 0 21px; min-width:0; }
+    legend { padding:0; margin-bottom:8px; font-weight:700; font-size:16px; }
+    .field { margin-bottom:14px; }
+    label:not(.check):not(.radio) { display:block; margin-bottom:5px; font-weight:650; }
+    .hint { color:var(--muted); font-size:12px; margin:3px 0 6px; }
+    input[type=text],select,textarea { width:100%; border:1px solid #aebfc8; border-radius:7px; background:#fff; color:var(--ink); padding:8px 10px; font:inherit; line-height:1.5; }
+    textarea { min-height:68px; resize:vertical; }
+    input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid #75cbc3; outline-offset:2px; }
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .choice-row { display:flex; flex-wrap:wrap; gap:8px; }
+    .radio { display:flex; align-items:center; gap:7px; padding:8px 12px; border:1px solid var(--line); border-radius:8px; cursor:pointer; font-weight:600; }
+    .radio:has(input:checked) { background:#e8f6f4; border-color:var(--teal); }
+    .checks { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px 10px; }
+    .check { display:flex; align-items:flex-start; gap:7px; padding:7px 9px; border:1px solid var(--line); border-radius:7px; cursor:pointer; font-size:13px; line-height:1.45; }
+    input[type=checkbox],input[type=radio] { margin:3px 0 0; accent-color:var(--teal); }
+    details { border:1px solid var(--line); border-radius:9px; padding:10px 12px; background:#fcfefe; margin-bottom:19px; }
+    summary { cursor:pointer; font-weight:700; }
+    details .field:first-of-type { margin-top:15px; }
+    .note { border-left:4px solid var(--teal); background:#eaf6f4; padding:10px 12px; font-size:13px; margin:0 0 16px; }
+    .notice { color:var(--muted); font-size:12px; margin:12px 0 0; }
+    button { border:1px solid var(--teal); border-radius:8px; padding:10px 15px; background:var(--teal); color:#fff; font:inherit; font-weight:700; cursor:pointer; }
+    button:hover { background:var(--deep); }
+    button.secondary { background:#fff; color:var(--deep); }
+    button.secondary:hover { background:#e8f6f4; }
+    button:disabled { opacity:.48; cursor:not-allowed; }
+    .actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:13px; }
+    .status { padding:10px 12px; margin-bottom:12px; border-radius:7px; color:var(--warn); background:#fff4de; font-size:13px; }
+    .status.ok { color:var(--deep); background:#eaf6f4; }
+    .output { min-height:650px; white-space:pre-wrap; font:13px/1.7 "Yu Gothic UI","Meiryo",monospace; background:#fcfdfd; }
+    .small { font-size:12px; color:var(--muted); margin:10px 0 0; }
+    footer { max-width:1440px; margin:auto; padding:0 22px 28px; color:var(--muted); font-size:12px; }
+    [hidden] { display:none !important; }
+    @media(max-width:950px) { main { grid-template-columns:1fr; } .output { min-height:420px; } }
+    @media(max-width:550px) { header { padding:23px 17px; } main { padding:13px; } .panel-head,.body { padding-left:15px; padding-right:15px; } .row,.checks { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>テスト方針文言ビルダー</h1>
+    <p>何を受け入れるかを先に決め、G0 受付・入力完全性の暫定方針またはG5 実装計画に使う文案を作ります。変更箇所の確認を、製品全体の受入に読み替えません。</p>
+  </header>
+  <main>
+    <section class="panel" aria-labelledby="input-title">
+      <div class="panel-head"><h2 id="input-title">1. 文案の前提を入力</h2><p>未確認の事実は空欄のままにできます。生成文案では未確定と表示します。</p></div>
+      <div class="body">
+        <form id="builder-form">
+          <fieldset>
+            <legend>作成する文案</legend>
+            <div class="choice-row">
+              <label class="radio"><input type="radio" name="stage" value="G0" checked>G0 受付・入力完全性：暫定方針</label>
+              <label class="radio"><input type="radio" name="stage" value="G5">G5 実装計画：計画への記載案</label>
+            </div>
+            <p class="hint">G0 受付・入力完全性では試験や工数を確定しません。G5 実装計画ではG4 基本設計・制御設計と既存証拠を参照します。</p>
+          </fieldset>
+          <fieldset>
+            <legend>受入の範囲と利用目的</legend>
+            <div class="field"><label for="work-name">作業・製品名</label><input id="work-name" type="text" placeholder="例：申請システムの改修"></div>
+            <div class="field"><label for="acceptance-unit">今回、何を受け入れるか</label><select id="acceptance-unit"><option value="">未確認</option><option value="提供範囲全体">今回定めた提供範囲全体</option><option value="変更差分">既存製品の変更差分</option></select><p class="hint">変更差分だけの確認を、製品全体の受入とは表示しません。</p></div>
+            <div class="row">
+              <div class="field"><label for="use-purpose">何に使うか</label><select id="use-purpose"><option value="">未確認</option><option value="機能レビュー">機能レビュー</option><option value="範囲を限定した試行">範囲を限定した試行</option><option value="継続的な業務利用">継続的な業務利用</option></select></div>
+              <div class="field"><label for="delivery-scope">提供範囲</label><select id="delivery-scope"><option value="">未確認</option><option value="隔離環境の指定利用者">隔離環境の指定利用者</option><option value="指定した社内利用者">指定した社内利用者</option><option value="社内の広い利用者">社内の広い利用者</option><option value="社外の利用者">社外の利用者</option></select></div>
+            </div>
+            <div class="field"><label for="overall-outcome">利用者が達成すべき結果・既存の全体受入条件</label><p class="hint">今回の提供範囲で最後までできること、または既存の全体受入条件の参照先を記入します。複数あれば改行で列挙できます。</p><textarea id="overall-outcome" placeholder="例：申請の提出から結果の確認まで完了できる／既存の要求定義 §3.2"></textarea></div>
+            <div id="delta-fields" hidden>
+              <div class="field"><label for="delta-outcome">今回変更する部分の期待結果</label><p class="hint">変更箇所で何を観測できればよいか記入します。</p><textarea id="delta-outcome" placeholder="例：入力後に新しい判定結果を表示する"></textarea></div>
+              <div class="field"><label for="baseline-state">維持すべき既存動作・品質への影響</label><select id="baseline-state"><option value="">未確認</option><option value="あり">影響する条件がある</option><option value="なし">影響しないことを確認した</option></select></div>
+              <div class="field" id="baseline-detail-field" hidden><label for="baseline-detail">維持する条件・既存文書への参照</label><textarea id="baseline-detail" placeholder="例：既存の権限拒否と結果通知は維持する／要求定義 §4"></textarea></div>
+            </div>
+            <div class="field"><label for="limits">利用上の制約</label><p class="hint">利用者、期間、データ、権限、停止方法など。レビューや限定試行では、どこまで使うかを明確にします。</p><textarea id="limits" placeholder="確認済みの制約を記入"></textarea></div>
+          </fieldset>
+          <fieldset>
+            <legend>今回の変更・利用が及ぼす影響</legend>
+            <p class="hint">該当する可能性があるものを選びます。選択だけで必須試験やリスク区分は決まりません。</p>
+            <div class="checks" id="effects">
+              <label class="check"><input type="checkbox" value="実データの更新"><span>実データを更新する</span></label>
+              <label class="check"><input type="checkbox" value="秘密情報・個人情報の取扱い"><span>秘密情報・個人情報を扱う</span></label>
+              <label class="check"><input type="checkbox" value="外部への送信・操作"><span>外部へ送信・操作する</span></label>
+              <label class="check"><input type="checkbox" value="取り消し困難な作用・金銭的損失"><span>取り消し困難な作用・損失があり得る</span></label>
+              <label class="check"><input type="checkbox" value="業務停止・可用性への影響"><span>障害時に業務が止まる可能性がある</span></label>
+            </div>
+            <label class="check" style="margin-top:8px"><input id="effects-none" type="checkbox"><span>上記の影響がないことを確認した</span></label>
+          </fieldset>
+          <div id="g5-fields" hidden>
+            <details id="g5-detail" open>
+              <summary>G5 実装計画で使う設計・確認情報</summary>
+              <p class="hint">ここでG4 基本設計・制御設計の経路や受入条件を新しく決定しません。既存の設計と要求を参照します。</p>
+              <div class="field"><label for="routes">G4 基本設計・制御設計で定めた経路IDと版</label><p class="hint">例：対象版v2のR01・R02。対象経路との対応は案件側で照合します。</p><textarea id="routes" placeholder="既存のG4 基本設計・制御設計から記入"></textarea></div>
+              <div class="field"><label for="evidence-state">既存の確認結果</label><select id="evidence-state"><option value="">未確認</option><option value="あり">再利用できる可能性がある</option><option value="なし">該当する結果がないことを確認した</option></select></div>
+              <div class="field" id="evidence-detail-field" hidden><label for="evidence">候補の所在・条件</label><textarea id="evidence" placeholder="例：UI操作記録、関連回帰試験。対象版と条件を確認する"></textarea></div>
+              <p class="hint">変更が及ぶ箇所を選びます。試験件数へは変換しません。</p>
+              <div class="checks" id="boundaries">
+                <label class="check"><input type="checkbox" value="純粋ロジック"><span>計算・判定</span></label>
+                <label class="check"><input type="checkbox" value="状態機械"><span>開始・停止・再開などの状態</span></label>
+                <label class="check"><input type="checkbox" value="アクセス制御・隔離実行環境"><span>権限・実行環境の隔離</span></label>
+                <label class="check"><input type="checkbox" value="外部API・イベント"><span>外部API・イベント</span></label>
+                <label class="check"><input type="checkbox" value="UI"><span>利用画面</span></label>
+                <label class="check"><input type="checkbox" value="Git・実行環境操作"><span>Git・実行環境の操作</span></label>
+                <label class="check"><input type="checkbox" value="長時間実行"><span>長時間実行・再開</span></label>
+                <label class="check"><input type="checkbox" value="AI評価"><span>AIの出力・評価</span></label>
+                <label class="check"><input type="checkbox" value="証拠比較"><span>既存証拠の援用</span></label>
+              </div>
+              <div class="field" style="margin-top:15px"><label for="effort">検証の概算工数（幅・前提）</label><p class="hint">G5 実装計画に必要な情報です。準備、実行、証拠確認、想定する再試験を含めます。</p><textarea id="effort" placeholder="例：3〜5時間。既存の画面記録を援用できることが前提"></textarea></div>
+            </details>
+          </div>
+          <button id="generate" type="button">文案を作成</button>
+          <p class="notice">作成後の文案は画面上で編集できます。入力を変更しても、編集内容は自動で上書きしません。</p>
+        </form>
+      </div>
+    </section>
+    <section class="panel" aria-labelledby="output-title">
+      <div class="panel-head"><h2 id="output-title">2. 文案を確認・編集</h2><p>「文案を作成」を押すと、未確定事項を残したMarkdownが表示されます。</p></div>
+      <div class="body">
+        <div class="note">この画面は文案作成の補助です。受入、安全性、実行許可は自動判定しません。案件の要求・G4 基本設計・制御設計・証拠と照合して採否を決めます。</div>
+        <div id="status" class="status" role="status">まだ文案を作成していません。</div>
+        <textarea id="output" class="output" aria-label="編集できるMarkdown文案" placeholder="入力後に「文案を作成」を押してください。" spellcheck="false"></textarea>
+        <div class="actions"><button id="download" class="secondary" type="button" disabled>Markdownで保存</button><button id="copy" class="secondary" type="button" disabled>文案をコピー</button></div>
+        <p id="message" class="small" role="status">入力や文案を外部へ送信せず、自動保存もしません。</p>
+      </div>
+    </section>
+  </main>
+  <footer>参照：<a href="../01-ai_work_operating_standard_v1_6_2026-10.md">AI作業・AI支援開発の運用標準 v1.6</a>の工程定義、第6.11節、第7～8章。この画面は規範外の補助資料です。</footer>
+  <script>
+    'use strict';
+    const byId = id => document.getElementById(id);
+    const val = id => byId(id).value.trim();
+    const checked = id => [...byId(id).querySelectorAll('input:checked')].map(input => input.value);
+    const pending = label => `【未確定：${label}】`;
+    const shown = (text, label) => text || pending(label);
+    const mdValue = (text, label) => shown(text, label).split(/\r?\n/).map(s => s.trim()).filter(Boolean).join('\n  - ');
+    const stageName = code => code === 'G0' ? 'G0 受付・入力完全性' : 'G5 実装計画';
+    const judgments = {
+      '純粋ロジック':'変更した計算・判定は期待どおりで、影響する既存動作は保たれるか。',
+      '状態機械':'今回変更する状態遷移は設計どおりか。',
+      'アクセス制御・隔離実行環境':'実際の主体は対象資源に許可された操作だけを行えるか。',
+      '外部API・イベント':'実際の境界で送受信と結果の適用を確認できるか。',
+      'UI':'利用者は受入条件に含まれる操作を実画面で完了できるか。',
+      'Git・実行環境操作':'許可対象への変更と指定された送達先での結果を確認できるか。',
+      '長時間実行':'期限・通知・孤児化検知・再開のうち、今回必要な制御は機能するか。',
+      'AI評価':'用途に照らして出力と根拠を判定でき、評価条件は保たれるか。',
+      '証拠比較':'援用する証拠の来歴・対象条件・値は今回の判定に合うか。'
+    };
+
+    function readForm() {
+      return {
+        stage:document.querySelector('input[name="stage"]:checked').value,
+        name:val('work-name'), unit:val('acceptance-unit'), purpose:val('use-purpose'), scope:val('delivery-scope'),
+        overall:val('overall-outcome'), delta:val('delta-outcome'), baselineState:val('baseline-state'),
+        baseline:val('baseline-detail'), limits:val('limits'), effects:checked('effects'), effectsNone:byId('effects-none').checked,
+        routes:val('routes'), evidenceState:val('evidence-state'), evidence:val('evidence'),
+        boundaries:checked('boundaries'), effort:val('effort')
+      };
+    }
+
+    function buildPolicy(d) {
+      const missing = [];
+      if (!d.unit) missing.push('今回の受入対象');
+      if (!d.purpose) missing.push('利用目的');
+      if (!d.scope) missing.push('提供範囲');
+      if (!d.overall) missing.push('利用者が達成すべき結果、または既存の全体受入条件への参照');
+      if (d.unit === '変更差分') {
+        if (!d.delta) missing.push('変更部分の期待結果');
+        if (!d.baselineState) missing.push('既存動作・品質への影響');
+        if (d.baselineState === 'あり' && !d.baseline) missing.push('維持する既存条件または参照先');
+      }
+      if (!d.effects.length && !d.effectsNone) missing.push('具体的な影響の確認');
+      if (d.effects.length && d.effectsNone) missing.push('影響の選択と「影響なし」の矛盾');
+      if ((d.purpose === '機能レビュー' || d.purpose === '範囲を限定した試行') && !d.limits) missing.push('レビュー・試行の利用制約');
+      if (d.stage === 'G5') {
+        if (!d.routes) missing.push('G4 基本設計・制御設計の対象版と経路ID');
+        if (!d.evidenceState) missing.push('既存の確認結果の有無');
+        if (d.evidenceState === 'あり' && !d.evidence) missing.push('既存の確認結果の所在・条件');
+        if (!d.boundaries.length) missing.push('変更が及ぶ箇所');
+        if (!d.effort) missing.push('検証工数の幅と前提');
+      }
+      const impact = d.effects.length ? d.effects.join('、') : (d.effectsNone ? '列挙した影響はないとの入力（案件側で確認）' : pending('具体的な影響'));
+      const unit = shown(d.unit, '今回の受入対象');
+      const md = [
+        `# テスト方針の文案（${stageName(d.stage)}・未承認）${d.name ? `｜${d.name}` : ''}`,
+        '参照標準：v1.6。案件の採用版・指示・許可との一致は別途確認する。',
+        '',
+        `- 今回の受入対象：${unit}`,
+        `- 利用目的：${shown(d.purpose, '利用目的')}`,
+        `- 提供範囲：${shown(d.scope, '提供範囲')}`,
+        `- 提供範囲全体で達成する結果・既存の受入条件：${mdValue(d.overall, '利用者が達成すべき結果または参照先')}`
+      ];
+      if (d.unit === '変更差分') {
+        md.push(`- 今回変更する部分の期待結果：${mdValue(d.delta, '変更部分の期待結果')}`);
+        const baseline = d.baselineState === 'あり' ? mdValue(d.baseline, '維持する既存条件') :
+          d.baselineState === 'なし' ? '影響なしとの入力（根拠はこの画面では未照合）' : pending('既存動作・品質への影響');
+        md.push(`- 維持すべき既存動作・品質：${baseline}`);
+      }
+      md.push(`- 具体的な影響：${impact}`);
+      if (d.limits) md.push(`- 利用上の制約：${mdValue(d.limits, '利用上の制約')}`);
+      else if (d.purpose === '機能レビュー' || d.purpose === '範囲を限定した試行') md.push(`- 利用上の制約：${pending('レビュー・試行の対象、データ、停止条件など')}`);
+      md.push('');
+      if (d.stage === 'G0') {
+        md.push('## G0 受付・入力完全性での暫定方針');
+        md.push('依頼と既存の承認を引き継ぎ、受入条件はG2 目的・要求定義で明確にする。この文案だけで要求を追加・縮小しない。今回の影響を判断する証拠は、後続の計画で既存結果を確認してから選ぶ。ここでは個々の試験と工数を確定しない。');
+      } else {
+        md.push('## G5 実装計画での検証案');
+        md.push(`- G4 基本設計・制御設計の対象版・経路ID：${mdValue(d.routes, 'G4 基本設計・制御設計の対象版と経路ID')}`);
+        const evidence = d.evidenceState === 'あり' ? `${mdValue(d.evidence, '確認結果の所在・条件')}（対象版・条件の適合は未判定）` :
+          d.evidenceState === 'なし' ? '該当する既存結果はないとの入力' : pending('既存結果の有無');
+        md.push(`- 既存の確認結果：${evidence}`);
+        md.push('- 受入判断に関係し得る確認の視点：');
+        if (d.boundaries.length) d.boundaries.forEach(x => md.push(`  - ${x}：${judgments[x]}`));
+        else md.push(`  - ${pending('変更が及ぶ箇所')}`);
+        md.push('', 'まず既存の証拠が今回の条件に合うか確かめ、不足する証拠を得るための試験だけを選ぶ。権限、外部への作用、失敗時の処理、受入結果が異なる経路は、根拠なく同等とみなさない。', '');
+        md.push(`- 検証の概算工数（幅・前提）：${mdValue(d.effort, 'G5 実装計画で記入')}`);
+        md.push('', 'この文案は検証対象の整理である。G5 実装計画のテスト計画として確定する際は、選んだ試験の方法・環境・期待結果・証拠・終了条件と、G4 基本設計・制御設計の経路IDへの対応を既存の計画に記す。');
+        md.push('G7の通過判断に必要な証拠と、対象外又は代表試験で判断できる範囲を区別し、その理由を記す。必要な実経路の確認を、計画上の対象外や模擬結果で代用しない。');
+        md.push('概算工数は実行の許可上限ではない。確認・修正に使える試行回数、活動時間、費用等の既存の許可・上限・停止条件は、作業カード等の参照先とともに案件側で照合する。本ツールではこれらの許可を確認していない。新設・変更が必要なら、見積りを添えて決定権者へ提案する。');
+        md.push('通過を妨げる未達・未確認は、現在の工程で既存の許可と残る上限内の処置につなぐ。上限に達した操作は止め、第6.11節に従って判断を渡す。上限到達や評価表の受理を、合格・工程通過・受入済みとは扱わない。');
+      }
+      if (d.unit === '変更差分') md.push('', '変更差分の確認だけでは、製品全体を受け入れたことにはならない。');
+      else if (d.unit === '提供範囲全体') md.push('', '提供範囲全体の合格や利用可能性は、G8 受入・送達で判定する。');
+      md.push('', '## 未確定・要確認事項', missing.length ? missing.map(x => `- ${x}`).join('\n') : '- 検査対象の空欄・選択矛盾は検出されませんでした。内容・証拠・許可は未照合。');
+      md.push('', '※ 試験の要否・件数、受入可否、安全性、実行許可はこの文案からは確定しない。');
+      return { text:md.join('\n'), missing };
+    }
+
+    function refreshFields() {
+      const d = readForm();
+      byId('g5-fields').hidden = d.stage !== 'G5';
+      byId('delta-fields').hidden = d.unit !== '変更差分';
+      byId('baseline-detail-field').hidden = d.baselineState !== 'あり';
+      byId('evidence-detail-field').hidden = d.evidenceState !== 'あり';
+    }
+    function markChanged() {
+      refreshFields();
+      if (byId('output').value) {
+        byId('status').textContent = '入力が変わりました。現在の文案は残しています。入力を反映する場合は「文案を作成」を押してください（文案は置き換わります）。';
+        byId('status').classList.remove('ok');
+      }
+    }
+    function generate() {
+      const result = buildPolicy(readForm());
+      byId('output').value = result.text;
+      byId('download').disabled = false;
+      byId('copy').disabled = false;
+      byId('generate').textContent = '入力から文案を再作成（現在の文案を置換）';
+      byId('status').textContent = result.missing.length ? `未確定・矛盾：${result.missing.length}項目。文案中にも表示しました。確認・編集してから利用してください。` : '検査対象の空欄・選択矛盾は検出されませんでした。内容・証拠・許可は未照合です。';
+      byId('status').classList.toggle('ok', !result.missing.length);
+      byId('message').textContent = '文案は編集できます。保存やコピーは任意です。';
+    }
+    byId('builder-form').addEventListener('submit', event => event.preventDefault());
+    byId('builder-form').addEventListener('input', markChanged);
+    byId('builder-form').addEventListener('change', markChanged);
+    byId('generate').addEventListener('click', generate);
+    byId('output').addEventListener('input', () => { byId('message').textContent = '文案を編集しました。入力から再作成すると、編集内容は置き換わります。'; });
+    byId('copy').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(byId('output').value); byId('message').textContent = '現在の文案をコピーしました。'; }
+      catch { byId('output').select(); byId('message').textContent = '自動コピーできませんでした。選択された文案を手動でコピーしてください。'; }
+    });
+    byId('download').addEventListener('click', () => {
+      const blob = new Blob([byId('output').value], {type:'text/markdown;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url; link.download = 'test-policy-draft.md'; link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      byId('message').textContent = 'Markdownのダウンロードを開始しました。保存完了はブラウザの表示と保存先で確認してください。';
+    });
+    refreshFields();
+  </script>
+</body>
+</html>
